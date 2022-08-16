@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>게시물 작성</title>
+</head>
+<body>
+
+  <div class="layout">
+    <form th:action="@{/board/update/{id}(id = ${board.id})}" method="post">
+          제목<input name="title" type="text" th:value="${board.title}"><br>
+          태그 : 운동<input name="category" type="radio" value="운동" checked="checked">
+                식사<input name="category" type="radio" value="식사">
+                게임<input name="category" type="radio" value="게임">
+                공부<input name="category" type="radio" value="공부">
+                기타<input name="category" type="radio" value="기타"><br>
+          요구 성별 : 남자만<input name="genderdisplay" type="radio" value="남자만" checked="checked">
+                    여자만<input name="genderdisplay" type="radio" value="여자만">
+                    성별무관<input name="genderdisplay" type="radio" value="성별무관"><br>
+          사람수<input name="maxPeople" type="text" th:value="${board.maxPeople}"><br>
+          날짜<input name="date" type="text" th:value="${board.date}"><br>
+            오전<input name="noon" type="radio" value="오전" checked="checked">
+            오후<input name="noon" type="radio" value="오후"><br>
+          시간<input name="hour" type="text" th:value="${board.hour}"><br>
+          분<input name="minute" type="text" th:value="${board.minute}"><br>
+          장소<input name="placename" type="text" th:value="${board.placename}"><br>
+          주소<input name="position" type="text" th:value="${board.position}"><br>
+          내용<textarea name="content" th:value="${board.content}"></textarea>
+      <button type="submit">작성</button>
+
+    </form>
+  </div>
+
+</body>
+</html>
