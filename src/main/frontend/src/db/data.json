@@ -1,0 +1,300 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "category": "식사",
+      "active": true
+    },
+    {
+      "id": 2,
+      "category": "운동",
+      "active": false
+    },
+    {
+      "id": 3,
+      "category": "게임",
+      "active": false
+    },
+    {
+      "id": 4,
+      "category": "공부",
+      "active": false
+    },
+    {
+      "id": 5,
+      "category": "기타",
+      "active": false
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "writerId": "id1",
+      "userApply": [
+        "id1",
+        "asdfasdf"
+      ],
+      "writerGender": "w",
+      "date": "2022-08-07",
+      "noon": "오후",
+      "hour": "04",
+      "minute": "00",
+      "category": "운동",
+      "genderDisplay": "성별무관",
+      "genderCheck": "b",
+      "currentPeople": 2,
+      "maxPeople": "4",
+      "title": "헬린이 운동 좀 알려줘",
+      "content": "ㅠㅠㅠ 기구 사용법 모르겠어",
+      "position": [
+        "37.25208547346099",
+        "127.07443897430575"
+      ],
+      "placeName": "웨스턴짐"
+    },
+    {
+      "id": 3,
+      "writerId": "id1",
+      "userApply": [
+        "id1",
+        "asdfasdf"
+      ],
+      "writerGender": "w",
+      "date": "2022-08-12",
+      "noon": "오전",
+      "hour": "1",
+      "minute": "00",
+      "category": "기타",
+      "genderDisplay": "성별무관",
+      "genderCheck": "b",
+      "currentPeople": 2,
+      "maxPeople": "6",
+      "title": "cgv 영화 볼 사람",
+      "content": "선착순 5명",
+      "position": [
+        "37.2525522369675",
+        "127.071477186346"
+      ],
+      "placeName": "메가박스 영통"
+    },
+    {
+      "id": 4,
+      "writerId": "asdfasdf",
+      "userApply": [
+        "asdfasdf"
+      ],
+      "writerGender": "w",
+      "date": "2022-08-11",
+      "noon": "오전",
+      "hour": "1",
+      "minute": "00",
+      "category": "공부",
+      "genderDisplay": "여자만",
+      "genderCheck": "w",
+      "currentPeople": 1,
+      "maxPeople": "2",
+      "title": "1234",
+      "content": "1235",
+      "position": [
+        37.2437815,
+        127.0764067
+      ],
+      "placeName": "경희대학교 국제캠퍼스"
+    },
+    {
+      "id": 5,
+      "writerId": "asdfasdf",
+      "userApply": [
+        "asdfasdf",
+        "id1"
+      ],
+      "writerGender": "w",
+      "date": "2022-08-12",
+      "noon": "오전",
+      "hour": "1",
+      "minute": "00",
+      "category": "식사",
+      "genderDisplay": "성별무관",
+      "genderCheck": "b",
+      "currentPeople": 2,
+      "maxPeople": "2",
+      "title": "제목없음",
+      "content": "내용없음",
+      "position": [
+        37.2437815,
+        127.0764067
+      ],
+      "placeName": "경희대학교 국제캠퍼스"
+    },
+    {
+      "id": 6,
+      "writerId": "id1",
+      "userApply": [
+        "id1"
+      ],
+      "writerGender": "w",
+      "date": "2022-08-25",
+      "noon": "오전",
+      "hour": "1",
+      "minute": "00",
+      "category": "게임",
+      "genderDisplay": "성별무관",
+      "genderCheck": "b",
+      "currentPeople": 1,
+      "maxPeople": "5",
+      "title": "ㅇ",
+      "content": "ㅇ",
+      "position": [
+        "37.2479707082863",
+        "127.078163434991"
+      ],
+      "placeName": "아이센스리그PC방 수원경희대점"
+    },
+    {
+      "id": 7,
+      "writerId": "id1",
+      "userApply": [
+        "id1",
+        "asdfasdf"
+      ],
+      "writerGender": "w",
+      "date": "2022-08-17",
+      "noon": "오후",
+      "hour": "1",
+      "minute": "00",
+      "category": "식사",
+      "genderDisplay": "성별무관",
+      "genderCheck": "b",
+      "currentPeople": 2,
+      "maxPeople": "2",
+      "title": "제목없음",
+      "content": "내용없음",
+      "position": [
+        "37.2479892708963",
+        "127.077338403131"
+      ],
+      "placeName": "부대통령뚝배기"
+    },
+    {
+      "id": 8,
+      "writerId": "id1",
+      "userApply": [
+        "id1"
+      ],
+      "writerGender": "w",
+      "date": "2022-08-16",
+      "noon": "오전",
+      "hour": "1",
+      "minute": "00",
+      "category": "식사",
+      "genderDisplay": "남자만",
+      "genderCheck": "m",
+      "currentPeople": 1,
+      "maxPeople": "-13",
+      "title": "123",
+      "content": "123",
+      "position": [
+        "37.2479892708963",
+        "127.077338403131"
+      ],
+      "placeName": "부대통령뚝배기"
+    },
+    {
+      "id": 9,
+      "writerId": "id1",
+      "userApply": [
+        "id1"
+      ],
+      "writerGender": "w",
+      "date": "2022-08-16",
+      "noon": "오전",
+      "hour": "1",
+      "minute": "00",
+      "category": "식사",
+      "genderDisplay": "남자만",
+      "genderCheck": "m",
+      "currentPeople": 1,
+      "maxPeople": "-123",
+      "title": "제목없음",
+      "content": "내용없음",
+      "position": [
+        37.2437815,
+        127.0764067
+      ],
+      "placeName": "경희대학교 국제캠퍼스"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "userId": "id1",
+      "userPw": "pw1",
+      "userName": "name1",
+      "userGender": "m",
+      "userBirthDay": "2022-08-02",
+      "userEmail": "email1@khu.ac.kr"
+    },
+    {
+      "id": 2,
+      "userId": "id2",
+      "userPw": "pw2",
+      "userName": "name2",
+      "userGender": "w",
+      "userBirthDay": "2022-08-02",
+      "userEmail": "email2@khu.ac.kr"
+    },
+    {
+      "id": 3,
+      "userId": "asdfasdf",
+      "userPw": "asdfasdf",
+      "userName": "asdfasdf1",
+      "userGender": "w",
+      "userBirthday": "1989-10-07",
+      "userEmail": "kangkh0906@khu.ac.kr"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "postId": "5",
+      "writerId": "asdfasdf",
+      "writerName": "asdfasdf1",
+      "comment": "123123"
+    },
+    {
+      "id": 2,
+      "postId": "5",
+      "writerId": "asdfasdf",
+      "writerName": "asdfasdf1",
+      "comment": "안녕하세요"
+    },
+    {
+      "id": 3,
+      "postId": "5",
+      "writerId": "asdfasdf",
+      "writerName": "asdfasdf1",
+      "comment": "반갑습니다"
+    },
+    {
+      "id": 4,
+      "postId": "7",
+      "writerId": "asdfasdf",
+      "writerName": "asdfasdf1",
+      "comment": "asfadsfa"
+    },
+    {
+      "id": 5,
+      "postId": "7",
+      "writerId": "asdfasdf",
+      "writerName": "asdfasdf1",
+      "comment": "afeafewd"
+    },
+    {
+      "id": 7,
+      "postId": "5",
+      "writerId": "id1",
+      "writerName": "name1",
+      "comment": "ㅇ 하이"
+    }
+  ]
+}
