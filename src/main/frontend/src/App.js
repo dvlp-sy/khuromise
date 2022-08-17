@@ -52,7 +52,7 @@ function App() {
       setIsLogin(true);
     }
   });
-  console.log("rendered!");
+
   return (
     <PostContextProvider>
       <ContextProvider>
@@ -61,11 +61,11 @@ function App() {
           <Header isLogin={isLogin} setIsLogin={setIsLogin} />
           <TestBar isLogin={isLogin} />
           <Routes>
-            {/* <Route
+            <Route
               path="/"
               exact={true}
               element={<Mainpage isLogin={isLogin} setIsLogin={setIsLogin} />}
-            ></Route> */}
+            ></Route>
             <Route path="/login" element={<Login isLogin={isLogin} />}></Route>
             <Route
               path="/register"
@@ -80,8 +80,7 @@ function App() {
               element={<Post isLogin={isLogin} />}
             ></Route>
             <Route
-              path="/"
-              exact={true}
+              path="/createpost"
               element={<CreatePost isLogin={isLogin} />}
             ></Route>
             <Route

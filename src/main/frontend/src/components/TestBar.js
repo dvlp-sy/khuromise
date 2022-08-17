@@ -19,7 +19,6 @@ const TestBarBlock = styled.div`
 
 const TestBar = () => {
   const categories = useFetch(`http://localhost:3002/categories`);
-  // const categories = useFetch(`http://localhost:8080/categories`);
 
   const onClick = () => {
     window.location.reload();

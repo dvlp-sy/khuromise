@@ -154,8 +154,7 @@
       "id": 7,
       "writerId": "id1",
       "userApply": [
-        "id1",
-        "asdfasdf"
+        "id1"
       ],
       "writerGender": "w",
       "date": "2022-08-17",
@@ -165,7 +164,7 @@
       "category": "식사",
       "genderDisplay": "성별무관",
       "genderCheck": "b",
-      "currentPeople": 2,
+      "currentPeople": 1,
       "maxPeople": "2",
       "title": "제목없음",
       "content": "내용없음",
@@ -174,54 +173,6 @@
         "127.077338403131"
       ],
       "placeName": "부대통령뚝배기"
-    },
-    {
-      "id": 8,
-      "writerId": "id1",
-      "userApply": [
-        "id1"
-      ],
-      "writerGender": "w",
-      "date": "2022-08-16",
-      "noon": "오전",
-      "hour": "1",
-      "minute": "00",
-      "category": "식사",
-      "genderDisplay": "남자만",
-      "genderCheck": "m",
-      "currentPeople": 1,
-      "maxPeople": "-13",
-      "title": "123",
-      "content": "123",
-      "position": [
-        "37.2479892708963",
-        "127.077338403131"
-      ],
-      "placeName": "부대통령뚝배기"
-    },
-    {
-      "id": 9,
-      "writerId": "id1",
-      "userApply": [
-        "id1"
-      ],
-      "writerGender": "w",
-      "date": "2022-08-16",
-      "noon": "오전",
-      "hour": "1",
-      "minute": "00",
-      "category": "식사",
-      "genderDisplay": "남자만",
-      "genderCheck": "m",
-      "currentPeople": 1,
-      "maxPeople": "-123",
-      "title": "제목없음",
-      "content": "내용없음",
-      "position": [
-        37.2437815,
-        127.0764067
-      ],
-      "placeName": "경희대학교 국제캠퍼스"
     }
   ],
   "users": [
@@ -274,27 +225,6 @@
       "writerId": "asdfasdf",
       "writerName": "asdfasdf1",
       "comment": "반갑습니다"
-    },
-    {
-      "id": 4,
-      "postId": "7",
-      "writerId": "asdfasdf",
-      "writerName": "asdfasdf1",
-      "comment": "asfadsfa"
-    },
-    {
-      "id": 5,
-      "postId": "7",
-      "writerId": "asdfasdf",
-      "writerName": "asdfasdf1",
-      "comment": "afeafewd"
-    },
-    {
-      "id": 7,
-      "postId": "5",
-      "writerId": "id1",
-      "writerName": "name1",
-      "comment": "ㅇ 하이"
     }
   ]
 }

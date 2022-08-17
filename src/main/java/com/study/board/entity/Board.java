@@ -1,14 +1,15 @@
 package com.study.board.entity;
 
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Data
+@Table(schema="board")
+@JsonNaming(value= PropertyNamingStrategy.SnakeCaseStrategy.class)
 public class Board {
 
     @Id
@@ -34,5 +35,4 @@ public class Board {
     public Integer currentpeople;
     public Integer maxpeople;
 }
-
 
