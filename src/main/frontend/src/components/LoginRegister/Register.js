@@ -284,14 +284,15 @@ const Register = () => {
         number = number - 100000;
       }
       numRef.current = number;
+      console.log(numRef.current);
 
-      emailjs.init(config.PUBLIC_KEY);
-      const templateParams = {
-        name: name,
-        email: email,
-        number: number,
-      };
-      emailjs.send(config.SERVICE_ID, config.TEMPLATE_ID, templateParams);
+      // emailjs.init(config.PUBLIC_KEY);
+      // const templateParams = {
+      //   name: name,
+      //   email: email,
+      //   number: number,
+      // };
+      // emailjs.send(config.SERVICE_ID, config.TEMPLATE_ID, templateParams);
 
       setIsCerti(true);
       alert("인증메일이 성공적으로 전송되었습니다.");
@@ -339,13 +340,12 @@ const Register = () => {
       gender &&
       certification
     ) {
-      fetch("http://localhost:3002/users", {
+      fetch("/board/signuppro", {
         method: "POST",
         headers: {
           "Content-Type": "application/json; charset=UTF-8",
         },
         body: JSON.stringify({
-          id: numRef.current,
           userId: id,
           userPw: pw,
           userName: name,

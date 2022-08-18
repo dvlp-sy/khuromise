@@ -42,10 +42,7 @@ const PostListBody = styled.div`
 
 const PostList = (props) => {
   const { category } = useParams();
-  // const posts = useFetch(`http://localhost:3002/posts?category=${category}`);
-  console.log(category);
   const posts = useFetch(`/api/posts/${category}`);
-  console.log(posts);
   const { isLogin } = props;
 
   if (posts[0]) {
@@ -74,11 +71,11 @@ const PostList = (props) => {
                   noon={post.noon}
                   hour={post.hour}
                   minute={post.minute}
-                  placeName={post.placeName}
-                  genderDisplay={post.genderDisplay}
-                  currentPeople={post.currentPeople}
-                  maxPeople={post.maxPeople}
-                  writtenTime={post.writtenTime}
+                  placeName={post.placename}
+                  genderDisplay={post.genderdisplay}
+                  currentPeople={post.currentpeople}
+                  maxPeople={post.maxpeople}
+                  writtenTime={post.writtentime}
                   isLogin={isLogin}
                 />
               ))}

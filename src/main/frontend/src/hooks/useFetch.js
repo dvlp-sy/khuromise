@@ -1,12 +1,10 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 
 const useFetch = (url) => {
   const [data, setData] = useState([{ id: 0 }]);
 
   useEffect(() => {
-    axios
-      .get(url)
+    fetch(url)
       .then((res) => res.json())
       .then((res) => setData(res));
   }, [url]);

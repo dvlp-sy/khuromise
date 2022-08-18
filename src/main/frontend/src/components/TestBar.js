@@ -18,8 +18,28 @@ const TestBarBlock = styled.div`
 `;
 
 const TestBar = () => {
-  const categories = useFetch(`http://localhost:3002/categories`);
-
+  const categories = [
+    {
+      id: 1,
+      category: "식사",
+    },
+    {
+      id: 2,
+      category: "운동",
+    },
+    {
+      id: 3,
+      category: "게임",
+    },
+    {
+      id: 4,
+      category: "공부",
+    },
+    {
+      id: 5,
+      category: "기타",
+    },
+  ];
   const onClick = () => {
     window.location.reload();
   };

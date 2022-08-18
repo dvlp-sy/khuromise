@@ -21,30 +21,26 @@ public class UserController {
     private UserService userService;
 
     @GetMapping("/board/signin")
-    public String userSignin(){
+    public String userSignin() {
 
         return "usersignin";
     }
 
     @GetMapping("/board/signup")
-    public String userSignup(){
+    public String userSignup() {
 
         return "usersignup";
     }
 
     @PostMapping("/board/signuppro")
-    public String userSignupPro(User user, Model model){
+    public String userSignupPro(User user) {
         userService.write(user);
-
-        model.addAttribute("message","회원가입이 완료되었습니다.");
-        model.addAttribute("searchUrl", "/board/list");
-
-        return "message";
+        return "redirect:/login";
     }
 
     @GetMapping("/api/users")
     @ResponseBody
-    public List<User> getAllUsers(){
+    public List<User> getAllUsers() {
         return userService.getAllUsers();
     }
 }
