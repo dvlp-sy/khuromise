@@ -5,7 +5,6 @@ import people from "./account-group.png";
 import male from "./gender-male.png";
 import female from "./gender-female.png";
 import { useNavigate, useParams } from "react-router-dom";
-import { useState } from "react";
 import EmptyPage from "../EmptyPage";
 import Comment from "./Comment";
 import PostMap from "./PostMap";
@@ -87,7 +86,7 @@ const PostBody = styled.div`
 
   .map {
     height: 400px;
-    width : 400px;
+    width: 400px;
     border: 1px solid #bcbcbc;
     margin: 0 auto;
     margin-bottom: 10px;
@@ -123,14 +122,16 @@ const Buttons = styled.div`
 
 const Post = (props) => {
   const { id } = useParams();
-  const posts = useFetch(`http://localhost:3002/posts?id=${id}`);
-  const users = useFetch(`http://localhost:3002/users`);
-  const comments = useFetch(`http://localhost:3002/comments?postId=${id}`);
+  // const posts = useFetch(`http://localhost:3002/posts?id=${id}`);
+  const posts = useFetch(`/api/posts/id/${id}`);
+  // const users = useFetch(`http://localhost:3002/users`);
+  // const comments = useFetch(`http://localhost:3002/comments?postId=${id}`);
+  let users = [];
+  let comments;
 
   const post = { ...posts[0] };
   const date = String(post.date);
   const currentPeople = Number(post.currentPeople);
-  const [_post, set_Post] = useState(post);
   const navigate = useNavigate();
   // const { isLogin } = props;
 
@@ -245,7 +246,9 @@ const Post = (props) => {
             </PostHeader>
             <PostBody>
               <PostMap />
-              <div className="content" style={{whiteSpace : 'pre'}}>{post.content}</div>
+              <div className="content" style={{ whiteSpace: "pre" }}>
+                {post.content}
+              </div>
               <Buttons>
                 {/* 작성자만 수정 OR 삭제 가능 */}
                 {post.writerId === findUser.userId && (

@@ -42,7 +42,10 @@ const PostListBody = styled.div`
 
 const PostList = (props) => {
   const { category } = useParams();
-  const posts = useFetch(`http://localhost:3002/posts?category=${category}`);
+  // const posts = useFetch(`http://localhost:3002/posts?category=${category}`);
+  console.log(category);
+  const posts = useFetch(`/api/posts/${category}`);
+  console.log(posts);
   const { isLogin } = props;
 
   if (posts[0]) {

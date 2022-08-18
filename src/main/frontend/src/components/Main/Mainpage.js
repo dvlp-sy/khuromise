@@ -22,11 +22,11 @@ const Container = styled.div`
     row-gap: 10px;
 
     .blank1 {
-      grid-column: 1/ span2;
+      grid-column: 1 / span2;
       grid-row: 1/2;
     }
     .blank2 {
-      grid-column: 1/ span 2;
+      grid-column: 1 / span 2;
       grid-row: 4/5;
     }
     .searchbox {
@@ -38,33 +38,31 @@ const Container = styled.div`
     }
     .profilebox {
       grid-column: 1/2;
-      grid-row: 3/ span1;
+      grid-row: 3 / span1;
     }
     .postbox {
       grid-column: 2/3;
-      grid-row: 2/ span 2;
+      grid-row: 2 / span 2;
       padding: 1%;
       min-height: 20em;
     }
   }
 `;
 
-
 const Mainpage = ({ isLogin, setIsLogin }) => {
   //const { loginUser } = useContext(LoginUserContext);
 
   console.log(isLogin);
-  console.log(sessionStorage.getItem('LoginUserInfo'));
+  console.log(sessionStorage.getItem("LoginUserInfo"));
 
   useEffect(() => {
-    if (sessionStorage.getItem('LoginUserInfo') === null) {
+    if (sessionStorage.getItem("LoginUserInfo") === null) {
       setIsLogin(false);
-    }
-    else {
+    } else {
       setIsLogin(true);
     }
   });
-  
+
   return (
     <div>
       <Container>
@@ -74,10 +72,10 @@ const Mainpage = ({ isLogin, setIsLogin }) => {
             <Search />
           </div>
           <div className="profilebox">
-            <Myprofile isLogin = {isLogin} />
+            <Myprofile isLogin={isLogin} />
           </div>
           <div className="postbox">
-            <Post5 isLogin={isLogin}/>
+            <Post5 isLogin={isLogin} />
           </div>
           <div className="blank2"></div>
         </div>
