@@ -1,13 +1,13 @@
 const fetchLogin = async({ inputId, inputPw }) => {
-  const response = await fetch(`http://localhost:3002/users`);
+  const response = await fetch(`/api/users`);
   
   if (response.ok) {
     const usersInfo = await response.json();
-    const userInfo = usersInfo.find((user) => user.userId === inputId)
+    const userInfo = usersInfo.find((user) => user.userid === inputId)
     if (!userInfo) {
       alert("아이디 또는 비밀번호가 일치하지 않습니다.");
     }
-    else if (userInfo.userPw !== inputPw) {
+    else if (userInfo.userpw !== inputPw) {
       alert("아이디 또는 비밀번호가 일치하지 않습니다.");
     }
     else {

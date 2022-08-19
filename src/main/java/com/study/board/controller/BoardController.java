@@ -1,7 +1,10 @@
 package com.study.board.controller;
 
 import com.study.board.entity.Board;
+import com.study.board.entity.User;
 import com.study.board.service.BoardService;
+import com.study.board.service.UserService;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -12,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @Controller
 // @RequestMapping("/api")
@@ -147,4 +151,28 @@ public class BoardController {
         return boardService.boardView(id);
     }
 
+    @PostMapping("/test")
+    public String test(@RequestBody Map<String, Object> param, Board board, Model model) {
+        JSONObject jobject = new JSONObject(param);
+
+        board.title = jobject.getString("title");
+        board.content = jobject.getString("content");
+        board.category = jobject.getString("category");
+        board.date = jobject.getString("date");
+        board.noon = jobject.getString("noon");
+        board.hour = jobject.getInt("hour");
+        board.minute = jobject.getInt("minute");
+        board.currentpeople = 1;
+        board.maxpeople = jobject.getInt("maxpeople");
+        board.genderdisplay = jobject.getString("genderdisplay");
+        board.placename = jobject.getString("placename");
+        board.position = jobject.getString("position");
+
+        boardService.write(board);
+
+        model.addAttribute("message", "글 작성이 완료되었습니다.");
+        model.addAttribute("searchUrl", "/board/list");
+
+        return "message";
+    }
 }

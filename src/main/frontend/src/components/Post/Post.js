@@ -121,18 +121,18 @@ const Buttons = styled.div`
 `;
 
 const Post = (props) => {
-  const { id } = useParams();
-  // const posts = useFetch(`http://localhost:3002/posts?id=${id}`);
-  const posts = useFetch(`/api/posts/id/${id}`);
-  // const users = useFetch(`http://localhost:3002/users`);
-  // const comments = useFetch(`http://localhost:3002/comments?postId=${id}`);
-  let users = [];
-  let comments;
-
-  const post = { ...posts[0] };
-  const date = String(post.date);
-  const currentPeople = Number(post.currentPeople);
   const navigate = useNavigate();
+  const { id } = useParams();
+  const post = useFetch(`/api/posts/id/${id}`);
+  const users = useFetch(`/api/users`);
+  const comments = useFetch(`http://localhost:3002/comments?postId=${id}`);
+
+  if (post.id === 0) {
+    return null;
+  }
+  const date = String(post.date);
+  const currentpeople = Number(post.currentpeople);
+
   // const { isLogin } = props;
 
   // 조건 추가하기 => 성별이 조건에 만족한다면 진행
@@ -140,20 +140,20 @@ const Post = (props) => {
   const findUsers = [...users];
   const findUser =
     findUsers.find(
-      (user) => user.userId === sessionStorage.getItem("LoginUserInfo")
+      (user) => user.userid === sessionStorage.getItem("LoginUserInfo")
     ) || {};
   const array = post.userApply || [];
 
   const applyClick = () => {
     if (window.confirm("신청하시겠습니까?")) {
-      if (array.includes(findUser.userId)) {
+      if (array.includes(findUser.userid)) {
         alert("이미 신청되었습니다.");
-      } else if (post.currentPeople < post.maxPeople) {
+      } else if (post.currentpeople < post.maxpeople) {
         if (
           post.genderCheck === "b" ||
-          post.genderCheck === findUser.userGender
+          post.genderCheck === findUser.usergender
         ) {
-          const userArray = array.concat([findUser.userId]);
+          const userArray = array.concat([findUser.userid]);
           console.log(userArray);
           fetch(`http://localhost:3002/posts/${post.id}`, {
             method: "PUT",
@@ -163,7 +163,7 @@ const Post = (props) => {
             body: JSON.stringify({
               ...post,
               userApply: userArray,
-              currentPeople: currentPeople + 1,
+              currentpeople: currentpeople + 1,
             }),
           }).then((res) => {
             if (res.ok) {
@@ -236,11 +236,11 @@ const Post = (props) => {
                     <Img src={male} />
                     <Img src={female} />
                   </div>
-                  {post.genderDisplay}
+                  {post.genderdisplay}
                 </div>
                 <div className="item">
                   <Img src={people} />
-                  {post.currentPeople} / {post.maxPeople}
+                  {post.currentpeople} / {post.maxpeople}
                 </div>
               </UnderBox>
             </PostHeader>
@@ -266,7 +266,7 @@ const Post = (props) => {
               </Buttons>
             </PostBody>
           </PostBlock>
-          <Comment id={id} visible={post.userApply.includes(findUser.userId)} />
+          {/*<Comment id={id} visible={post.userApply.includes(findUser.userId)} />*/}
         </>
       ) : (
         <EmptyPage />

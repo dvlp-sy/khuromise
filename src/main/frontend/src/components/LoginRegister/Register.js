@@ -41,6 +41,17 @@ const RegisterTemplate = styled.div`
     height: 28px;
   }
 
+  .genderbox {
+    width: 70px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .genderboxbox {
+    width: 100px;
+  }
+
   button {
     width: 70px;
     height: 30px;
@@ -52,11 +63,11 @@ const RegisterTemplate = styled.div`
   }
 
   .genderButton {
-    width: 83px;
-    height: 30px;
+    width: 50px;
+    height: 20px;
     font-size: 14px;
-    border: 1px solid #bcbcbc;
     cursor: pointer;
+    line-height: 20px;
   }
 
   .emailInput {
@@ -108,15 +119,12 @@ const Logo = styled.img`
 `;
 
 const Register = () => {
-  const navigate = useNavigate();
-
   const [id, setId] = useState(null);
   const [idShort, setIdShort] = useState(null);
   const [pw, setPw] = useState(null);
   const [_pw, set_Pw] = useState(null);
   const [name, setName] = useState(null);
-  const [gender, setGender] = useState(null);
-  const [email, setEmail] = useState(null);
+  const [email, setEmail] = useState("");
   const [canEmail, setCanEmail] = useState(null);
   const [check, setCheck] = useState(null);
   const [isCerti, setIsCerti] = useState(null);
@@ -156,29 +164,22 @@ const Register = () => {
   };
   const emailChange = () => {
     setCanEmail(null);
-    setEmail(String(emailRef.current.value) + "@khu.ac.kr");
+    setEmail(String(emailRef.current.value));
   };
   const checkChange = () => {
     setCheck(String(checkRef.current.value));
   };
 
-  const maleClick = () => {
-    setGender("m");
-  };
-
-  const femaleClick = () => {
-    setGender("w");
-  };
-
   //ID 중복확인
-  const users = useFetch(`http://localhost:3002/users`);
+  const users = useFetch(`/api/users`);
+  console.log((users))
   const [canId, setCanId] = useState(null);
 
   const idCheckClick = () => {
     if (id !== null) {
       if (id.length >= 6) {
         for (const user of users) {
-          if (user.userId === id) {
+          if (user.userid === id) {
             setCanId(false);
             setIdShort(false);
             break;
@@ -243,7 +244,7 @@ const Register = () => {
   const checkEmail = () => {
     if (email !== null) {
       for (const user of users) {
-        if (user.userEmail === email) {
+        if (user.useremail === email+"@khu.ac.kr") {
           setCanEmail(false);
           break;
         } else {
@@ -289,7 +290,7 @@ const Register = () => {
       // emailjs.init(config.PUBLIC_KEY);
       // const templateParams = {
       //   name: name,
-      //   email: email,
+      //   email: email + "@khu.ac.kr",
       //   number: number,
       // };
       // emailjs.send(config.SERVICE_ID, config.TEMPLATE_ID, templateParams);
@@ -331,135 +332,129 @@ const Register = () => {
     }
   };
 
-  const clickRegister = () => {
-    if (
-      canId &&
-      pw.length >= 8 &&
-      pw === _pw &&
-      name &&
-      gender &&
-      certification
-    ) {
-      fetch("/board/signuppro", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json; charset=UTF-8",
-        },
-        body: JSON.stringify({
-          userId: id,
-          userPw: pw,
-          userName: name,
-          userGender: gender,
-          userBirthday:
-            String(year) +
-            "-" +
-            String(month < 10 ? "0" + month : month) +
-            "-" +
-            String(day < 10 ? "0" + day : day),
-          userEmail: email,
-        }),
-      }).then((res) => {
-        if (res.ok) {
-          alert("성공적으로 회원가입하셨습니다!");
-          navigate(`/`);
-        }
-      });
-    } else {
-      alert("정보를 모두 작성하지 않았거나 인증이 필요합니다.");
-    }
-  };
-
   return (
     <RegisterTemplate>
       <Logo src={icon} />
-      <table>
-        <tbody>
-          <tr>
-            <td className="head">아이디</td>
-            <td>
-              <input
-                ref={idRef}
-                onChange={idChange}
-                placeholder="아이디를 입력해주세요"
-              />
-            </td>
-            <td>
-              <button onClick={idCheckClick}>중복확인</button>
-            </td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>
-              {idShort && (
-                <span className="redText">
-                  아이디는 6글자 이상이어야합니다.
-                </span>
-              )}
-              {canId !== null &&
-                (canId ? (
-                  <span className="greenText">사용가능한 아이디입니다.</span>
-                ) : (
-                  <span className="redText">이미 사용중인 아이디입니다.</span>
-                ))}
-            </td>
-          </tr>
-          <tr>
-            <td className="head">비밀번호</td>
-            <td>
-              <input
-                className="pw"
-                ref={pwRef}
-                onChange={pwChange}
-                placeholder="비밀번호를 입력해주세요"
-              />
-            </td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>
-              {pw &&
-                (pw.length < 8 ? (
-                  <span className="redText">비밀번호가 너무 짧습니다.</span>
-                ) : null)}
-            </td>
-          </tr>
-          <tr>
-            <td className="head">비밀번호 확인</td>
-            <td>
-              <input
-                className="pw"
-                ref={_pwRef}
-                onChange={_pwChange}
-                placeholder="비밀번호를 다시 입력해주세요"
-              />
-            </td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>
-              {pw &&
-                _pw &&
-                (pw === _pw ? (
-                  <span className="greenText">비밀번호가 일치합니다.</span>
-                ) : (
-                  <span className="redText">비밀번호가 일치하지 않습니다.</span>
-                ))}
-            </td>
-          </tr>
-          <tr>
-            <td className="head">이름</td>
-            <td>
-              <input
-                ref={nameRef}
-                onChange={nameChange}
-                placeholder="이름을 입력해주세요"
-              />
-            </td>
-          </tr>
-          <tr>
-            <td className="head">성별</td>
-            <td>
-              <button
+      <form action="/api/users/reg" method="post" onSubmit="return checkSubmit()">
+        <table>
+          <tbody>
+            <tr>
+              <td className="head">아이디</td>
+              <td>
+                <input
+                  name="userid"
+                  ref={idRef}
+                  onChange={idChange}
+                  value={id || ""}
+                  placeholder="아이디를 입력해주세요"
+                  required
+                />
+              </td>
+              <td>
+                <div onClick={idCheckClick}>중복확인</div>
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                {idShort && (
+                  <span className="redText">
+                    아이디는 6글자 이상이어야합니다.
+                  </span>
+                )}
+                {canId !== null &&
+                  (canId ? (
+                    <span className="greenText">사용가능한 아이디입니다.</span>
+                  ) : (
+                    <span className="redText">이미 사용중인 아이디입니다.</span>
+                  ))}
+              </td>
+            </tr>
+            <tr>
+              <td className="head">비밀번호</td>
+              <td>
+                <input
+                  minLength="8"
+                  className="pw"
+                  type="password"
+                  name="userpw"
+                  ref={pwRef}
+                  onChange={pwChange}
+                  value={pw || ""}
+                  placeholder="비밀번호를 입력해주세요"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                {pw &&
+                  (pw.length < 8 ? (
+                    <span className="redText">비밀번호가 너무 짧습니다.</span>
+                  ) : null)}
+              </td>
+            </tr>
+            <tr>
+              <td className="head">비밀번호 확인</td>
+              <td>
+                <input
+                  className="pw"
+                  type="password"
+                  ref={_pwRef}
+                  onChange={_pwChange}
+                  value={_pw || ""}
+                  placeholder="비밀번호를 다시 입력해주세요"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                {pw &&
+                  _pw &&
+                  (pw === _pw ? (
+                    <span className="greenText">비밀번호가 일치합니다.</span>
+                  ) : (
+                    <span className="redText">
+                      비밀번호가 일치하지 않습니다.
+                    </span>
+                  ))}
+              </td>
+            </tr>
+            <tr>
+              <td className="head">이름</td>
+              <td>
+                <input
+                  name="username"
+                  ref={nameRef}
+                  onChange={nameChange}
+                  value={name || ""}
+                  placeholder="이름을 입력해주세요"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td className="head">성별</td>
+              <td className="genderbox">
+                <input
+                  name="usergender"
+                  className="genderButton"
+                  type="radio"
+                  value="m"
+                  defaultChecked
+                />
+                남성
+                <input
+                  name="usergender"
+                  className="genderButton"
+                  type="radio"
+                  value="w"
+                />
+                여성
+                {/* <button
                 className="genderButton"
                 onClick={maleClick}
                 style={{
@@ -476,117 +471,133 @@ const Register = () => {
                 }}
               >
                 여자
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td className="head">생년월일</td>
-            <td>
-              <select ref={yearRef} onChange={yearChange} value={year}>
-                {yearList.map((year) => (
-                  <option key={year}>{year}</option>
-                ))}
-              </select>
-              년
-              <select ref={monthRef} onChange={monthChange} value={month}>
-                {monthList.map((month) => (
-                  <option key={month}>{month}</option>
-                ))}
-              </select>
-              월
-              <select ref={dayRef} onChange={dayChange} value={day}>
-                {selectDayList.map((day) => (
-                  <option key={day}>{day}</option>
-                ))}
-              </select>
-              일
-            </td>
-          </tr>
-          <tr>
-            <td className="head">e-mail</td>
-            <td>
-              {isCerti ? (
-                <div>
-                  <input
-                    className="emailInput"
-                    ref={emailRef}
-                    onChange={emailChange}
-                    placeholder={emailRef.current.value}
-                    disabled
-                  />
-                  <span>@khu.ac.kr</span>
-                </div>
-              ) : (
-                <div>
-                  <input
-                    className="emailInput"
-                    ref={emailRef}
-                    onChange={emailChange}
-                    placeholder="e-mail"
-                  />
-                  <span>@khu.ac.kr</span>
-                </div>
-              )}
-            </td>
-            <td>
-              {canEmail ? (
-                isCerti || <button onClick={sendEmail}>전송하기</button>
-              ) : (
-                <button onClick={checkEmail}>중복확인</button>
-              )}
-            </td>
-          </tr>
-
-          {isCerti ? (
-            <tr>
-              <td className="counter">
-                {min}:{sec}
-              </td>
-              <td>
-                <input
-                  maxLength="6"
-                  placeholder="인증번호를 입력해주세요"
-                  onKeyDown={isNum}
-                  ref={checkRef}
-                  onChange={checkChange}
-                />
-              </td>
-              <td>
-                <button onClick={checkNum}>인증하기</button>
+              </button> */}
               </td>
             </tr>
-          ) : (
-            canEmail !== null &&
-            (canEmail ? (
+            <tr>
+              <td className="head">생년월일</td>
+              <td>
+                <select
+                  name="useryear"
+                  ref={yearRef}
+                  onChange={yearChange}
+                  value={year || ""}
+                  required
+                >
+                  {yearList.map((year) => (
+                    <option key={year}>{year}</option>
+                  ))}
+                </select>
+                년
+                <select
+                  name="usermonth"
+                  ref={monthRef}
+                  onChange={monthChange}
+                  value={month || ""}
+                  required
+                >
+                  {monthList.map((month) => (
+                    <option key={month}>{month}</option>
+                  ))}
+                </select>
+                월
+                <select
+                  name="userdate"
+                  ref={dayRef}
+                  onChange={dayChange}
+                  value={day || ""}
+                  required
+                >
+                  {selectDayList.map((day) => (
+                    <option key={day}>{day}</option>
+                  ))}
+                </select>
+                일
+              </td>
+            </tr>
+            <tr>
+              <td className="head">e-mail</td>
+              <td>
+                <div>
+                  <input
+                    name="useremail"
+                    className="emailInput"
+                    ref={emailRef}
+                    onChange={emailChange}
+                    value={email || ""}
+                    placeholder="e-mail"
+                    required
+                    readOnly={isCerti ? true : false}
+                  />
+                  <span>@khu.ac.kr</span>
+                </div>
+              </td>
+              <td>
+                {canEmail ? (
+                  isCerti || <div onClick={sendEmail}>전송하기</div>
+                ) : (
+                  <div onClick={checkEmail}>중복확인</div>
+                )}
+              </td>
+            </tr>
+            {isCerti ? (
               <tr>
-                <td></td>
-                <td className="greenText">사용가능한 이메일입니다.</td>
+                <td className="counter">
+                  {min}:{sec}
+                </td>
+                <td>
+                  <input
+                    maxLength="6"
+                    placeholder="인증번호를 입력해주세요"
+                    onKeyDown={isNum}
+                    ref={checkRef}
+                    onChange={checkChange}
+                    required
+                  />
+                </td>
+                <td>
+                  <div onClick={checkNum}>인증하기</div>
+                </td>
               </tr>
             ) : (
+              canEmail !== null &&
+              (canEmail ? (
+                <tr>
+                  <td></td>
+                  <td className="greenText">사용가능한 이메일입니다.</td>
+                </tr>
+              ) : (
+                <tr>
+                  <td></td>
+                  <td className="redText">이미 사용중인 이메일입니다.</td>
+                </tr>
+              ))
+            )}
+            {certification ? (
               <tr>
                 <td></td>
-                <td className="redText">이미 사용중인 이메일입니다.</td>
+                <td className="greenText">인증이 완료되었습니다.</td>
               </tr>
-            ))
-          )}
-          {certification ? (
-            <tr>
-              <td></td>
-              <td className="greenText">인증이 완료되었습니다.</td>
-            </tr>
-          ) : (
-            certification === false && (
-              <tr>
-                <td></td>
-                <td className="redText">인증번호가 일치하지 않습니다.</td>
-              </tr>
-            )
-          )}
-        </tbody>
-      </table>
-      <button className="registerButton" onClick={clickRegister}>
-        회원가입
-      </button>
+            ) : (
+              certification === false && (
+                <tr>
+                  <td></td>
+                  <td className="redText">인증번호가 일치하지 않습니다.</td>
+                </tr>
+              )
+            )}
+          </tbody>
+        </table>
+        <input
+          type="submit"
+          className="registerButton"
+          value="회원가입"
+          disabled={canId &&
+              pw === _pw &&
+              name &&
+              certification ? false : true}
+        />
+      </form>
     </RegisterTemplate>
   );
 };
