@@ -3,7 +3,6 @@ package com.study.board.controller;
 import com.study.board.entity.Board;
 import com.study.board.entity.User;
 import com.study.board.service.BoardService;
-import com.study.board.service.UserService;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -151,10 +150,9 @@ public class BoardController {
         return boardService.boardView(id);
     }
 
-    @PostMapping("/test")
-    public String test(@RequestBody Map<String, Object> param, Board board, Model model) {
-        JSONObject jobject = new JSONObject(param);
-
+    @GetMapping("/test/save/{dat}")
+    public String DataSave(@PathVariable String data, Model model, Board board){
+        JSONObject jobject = new JSONObject(data);
         board.title = jobject.getString("title");
         board.content = jobject.getString("content");
         board.category = jobject.getString("category");
