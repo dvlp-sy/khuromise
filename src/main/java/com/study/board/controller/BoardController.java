@@ -1,6 +1,7 @@
 package com.study.board.controller;
 
 import com.study.board.entity.Board;
+import com.study.board.entity.User;
 import com.study.board.service.BoardService;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @Controller
 // @RequestMapping("/api")
@@ -166,7 +168,7 @@ public class BoardController {
 
         boardService.write(board);
 
-        model.addAttribute("message","글 작성이 완료되었습니다.");
+        model.addAttribute("message", "글 작성이 완료되었습니다.");
         model.addAttribute("searchUrl", "/board/list");
 
         return "message";

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>게시물 리스트 페이지</title>
+</head>
+<body>
+
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>글번호</th>
+                    <th>카테고리</th>
+                    <th>제목</th>
+                    <a th:href="@{/board/write}">글쓰기&nbsp;</a>
+                    <a th:href="@{/board/signin}">로그인</a><br>
+                    <a th:href="@{/board/list}">KHUromise&nbsp;</a>
+                    <a th:href="@{/board/list?searchKeyword=운동}">운동&nbsp;</a>
+                    <a th:href="@{/board/list?searchKeyword=식사}">식사&nbsp;</a>
+                    <a th:href="@{/board/list?searchKeyword=게임}">게임&nbsp;</a>
+                    <a th:href="@{/board/list?searchKeyword=공부}">공부&nbsp;</a>
+                    <a th:href="@{/board/list?searchKeyword=기타}">기타</a>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each = "board : ${list}">
+                    <td th:text = "${board.id}"></td>
+                    <td th:text = "${board.category}"></td>
+                    <td>
+                        <a th:text = "${board.title}" th:href="@{/board/view(id=${board.id})}"></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <th:block th:each="page : ${#numbers.sequence(startPage, endPage)}">
+            <a th:if="${page != nowPage}" th:href="@{/board/list(page = ${page-1}, searchKeyword = ${param.searchKeyword})}" th:text="${page}"></a>
+            <strong th:if="${page == nowPage}" th:text="${page}" style="color : red"></strong>
+        </th:block>
+        <form th:action="@{/board/list}" method="get">
+            <input type="text" name="searchTitle">
+            <button type="submit">검색</button>
+        </form>
+    </div>
+
+</body>
+</html>

@@ -106,7 +106,7 @@ const Login = () => {
       const LoginUser = await fetchLogin(inputAccount);
       //console.log(LoginUser);
       if (LoginUser !== undefined) {
-        sessionStorage.setItem("LoginUserInfo", LoginUser.userId);
+        sessionStorage.setItem("LoginUserInfo", LoginUser.userid);
         navigate(`/`);
       }
     } catch (error) {

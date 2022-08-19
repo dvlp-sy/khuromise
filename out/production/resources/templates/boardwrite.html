@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>게시물 작성</title>
+</head>
+<body>
+
+    <div class="layout">
+        <form action="/board/writepro" method="post">
+            제목<input name="title" type="text"><br>
+            태그 : 운동<input name="category" type="radio" value="운동" checked="checked">
+                  식사<input name="category" type="radio" value="식사">
+                  게임<input name="category" type="radio" value="게임">
+                  공부<input name="category" type="radio" value="공부">
+                  기타<input name="category" type="radio" value="기타"><br>
+            요구 성별 : 남자만<input name="genderdisplay" type="radio" value="남자만" checked="checked">
+                       여자만<input name="genderdisplay" type="radio" value="여자만">
+                       성별무관<input name="genderdisplay" type="radio" value="성별무관"><br>
+            사람수<input name="maxpeople" type="text"><br>
+            날짜<input name="date" type="date"><br>
+            오전<input name="noon" type="radio" value="오전" checked="checked">
+            오후<input name="noon" type="radio" value="오후"><br>
+            시간<input name="hour" type="text"><br>
+            분<input name="minute" type="text"><br>
+            장소<input name="placename" type="text"><br>
+            주소<input name="position" type="text"><br>
+            내용<textarea name="content"></textarea><br>
+            <button type="submit" name="currentpeople" value="1">작성</button>
+
+        </form>
+    </div>
+
+</body>
+</html>
