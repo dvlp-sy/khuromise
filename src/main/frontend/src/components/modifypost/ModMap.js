@@ -15,7 +15,7 @@ const SelectedPlaceBox = styled.div`
   padding : 4px;
 `;
 
-function ModMap({ searchPlace, setPositionValue, setPlacenameValue, mypost }) {
+function ModMap({ searchPlace, setLatValue, setLonValue, setPlacenameValue, mypost }) {
 
   const [searchLat, setSearchLat] = useState(37.2437815);
   const [searchLon, setSearchLon] = useState(127.0764067);
@@ -23,17 +23,19 @@ function ModMap({ searchPlace, setPositionValue, setPlacenameValue, mypost }) {
   const [initialLat, setInitialLat] = useState(37.2437815);
   const [initialLon, setInitialLon] = useState(127.0764067);
 
-  const savedPosition = mypost.position || [];
-  const savedPlaceName = mypost.placeName;
+  const savedLat = Number(mypost.lat) || 37.2437815;
+  const savedLon = Number(mypost.lon) || 127.0764067;
+  const savedPlaceName = mypost.placename;
   
   useEffect(() => {
-    setSearchLat(savedPosition[0]);
-    setSearchLon(savedPosition[1]);
-    setInitialLat(savedPosition[0]);
-    setInitialLon(savedPosition[1]);
-    setPositionValue(savedPosition);
+    setSearchLat(savedLat);
+    setSearchLon(savedLon);
+    setInitialLat(savedLat);
+    setInitialLon(savedLon);
+    setLatValue(savedLat);
+    setLonValue(savedLon);
     setPlacenameValue(savedPlaceName);
-  },[savedPosition[0], savedPosition[1], savedPlaceName]);
+  },[savedLat, savedLon, savedPlaceName]);
     
   useEffect(()=> {
     const container = document.getElementById("Map");
@@ -76,7 +78,8 @@ function ModMap({ searchPlace, setPositionValue, setPlacenameValue, mypost }) {
   const onClick = (data) => {
     setSearchLat(data.y);
     setSearchLon(data.x);
-    setPositionValue([data.y, data.x]);
+    setLatValue(data.y);
+    setLonValue(data.x);
     setPlacenameValue(data.place_name);
   }
   

@@ -59,7 +59,7 @@ function PostSend({ titlevalue , contentvalue, noonvalue, hourvalue, minutevalue
           "genderdisplay" : gendervalue,
           "gendercheck" : gender,
           "currentpeople" : 1,
-          "maxpeople" : peoplenumvalue,
+          "maxpeople" : Number(peoplenumvalue),
           "title" : titlevalue,
           "content" : contentvalue,
           "lat" : latvalue,

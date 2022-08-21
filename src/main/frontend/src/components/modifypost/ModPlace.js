@@ -39,7 +39,7 @@ const MapBox = styled.div`
 
 function ModPlace(props) {
 
-  const { setPositionValue, setPlacenameValue, mypost } = props;
+  const { setLatValue, setLonValue, setPlacenameValue, mypost } = props;
   const [input, setInput] = useState('');
   const [search, setSearch] = useState('');
   
@@ -60,7 +60,7 @@ function ModPlace(props) {
         <button onClick={onClick}>검색</button>
       </SearchBox>
       <MapBox>
-        <ModMap searchPlace={search} setPositionValue={setPositionValue} setPlacenameValue={setPlacenameValue} mypost={mypost} />
+        <ModMap searchPlace={search} setLatValue={setLatValue} setLonValue={setLonValue} setPlacenameValue={setPlacenameValue} mypost={mypost} />
       </MapBox>
     </PlaceBox>
   );

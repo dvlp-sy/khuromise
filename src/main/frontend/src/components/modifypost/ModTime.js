@@ -20,6 +20,9 @@ const TimeInputBox = styled.div`
 
 function ModTime(props) {
 
+  const hourList = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"];
+  const minuteList = ["00", "05", "10", "15", "20", "25", "30", "35", "40", "45", "50", "60"];
+
   const { mypost } = props;
   const { date, noon, hour, minute} = mypost;
   
@@ -89,34 +92,12 @@ function ModTime(props) {
       </TimeInputBox>
       <TimeInputBox>
         <select ref={hourRef} onChange={onChange2} value={hourState}>
-          <option value='01'>01</option>
-          <option value='02'>02</option>
-          <option value='03'>03</option>
-          <option value='04'>04</option>
-          <option value='05'>05</option>
-          <option value='06'>06</option>
-          <option value='07'>07</option>
-          <option value='08'>08</option>
-          <option value='09'>09</option>
-          <option value='10'>10</option>
-          <option value='11'>11</option>
-          <option value='12'>12</option>
+          {hourList.map((hour)=><option key={hour}>{hour}</option>)}
         </select>
       </TimeInputBox>
       <TimeInputBox>
         <select ref={minuteRef} onChange={onChange3} value={minuteState}>
-          <option value='00'>00</option>
-          <option value='05'>05</option>
-          <option value='10'>10</option>
-          <option value='15'>15</option>
-          <option value='20'>20</option>
-          <option value='25'>25</option>
-          <option value='30'>30</option>
-          <option value='35'>35</option>
-          <option value='40'>40</option>
-          <option value='45'>45</option>
-          <option value='50'>50</option>
-          <option value='55'>55</option>
+          {minuteList.map((minute)=><option key={minute}>{minute}</option>)}
         </select>
       </TimeInputBox>
     </TimeBox>

@@ -21,7 +21,7 @@ const PeopleBox2 = styled.div`
 function ModPeoplenum(props) {
 
   const peopleNumRef = useRef(null);
-  const peoplenumprop = props.mypost.maxPeople;
+  const peoplenumprop = props.mypost.maxpeople;
   const [ppnum, setPpNum] = useState();
 
   useEffect(() => {

@@ -134,7 +134,7 @@ function CreatePost(props) {
   const [titlevalue, setTitleValue] = useState('제목없음');
   const [contentvalue, setContentsValue] = useState('내용없음');
   const [noonvalue, setNoonValue] = useState('오전');
-  const [hourvalue, setHourValue] = useState('1');
+  const [hourvalue, setHourValue] = useState('01');
   const [minutevalue, setMinuteValue] = useState('00');
   const [peoplenumvalue, setPeopleNumValue] = useState('2');
   const [datevalue, setDateValue] = useState(todayYear+'-'+exactMonth(todayMonth)+'-'+exactDate(todayDate));
@@ -154,6 +154,7 @@ function CreatePost(props) {
   console.log(peoplenumvalue);
   console.log(exactMonth(todayMonth));
   */
+ 
   console.log(placenamevalue);
   return (
     <CreatePostBox>

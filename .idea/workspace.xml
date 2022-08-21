@@ -11,19 +11,14 @@
       <change beforePath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/main/com/study/board/controller/BoardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/com/study/board/controller/BoardController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/main/com/study/board/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/com/study/board/controller/UserController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/main/com/study/board/entity/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/com/study/board/entity/Board.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/main/static/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/static/asset-manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/main/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/static/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/study/board/controller/BoardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/study/board/controller/BoardController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/study/board/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/study/board/controller/UserController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/study/board/entity/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/study/board/entity/Board.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/study/board/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/study/board/entity/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/libs/board-0.0.1-SNAPSHOT-plain.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/board-0.0.1-SNAPSHOT-plain.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/libs/board-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/board-0.0.1-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/com.study.board.BoardApplicationTests.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/com.study.board.BoardApplicationTests.html" afterDir="false" />
@@ -33,23 +28,26 @@
       <change beforePath="$PROJECT_DIR$/build/resources/main/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-com.study.board.BoardApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-com.study.board.BoardApplicationTests.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/bootJar/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/bootJar/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/jar/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/jar/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/classes/com/study/board/controller/BoardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/study/board/controller/BoardController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/study/board/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/study/board/controller/UserController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/classes/com/study/board/entity/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/study/board/entity/Board.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/resources/static/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/resources/static/asset-manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/resources/static/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/frontend/build/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/build/asset-manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/frontend/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/build/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/frontend/src/components/LoginRegister/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/src/components/LoginRegister/Register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/src/components/createpost/CreatePost.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/src/components/createpost/CreatePost.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/frontend/src/components/createpost/PostSend.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/src/components/createpost/PostSend.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/src/components/createpost/Time.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/src/components/createpost/Time.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/src/components/modifypost/ModGenderList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/src/components/modifypost/ModGenderList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/src/components/modifypost/ModMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/src/components/modifypost/ModMap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/src/components/modifypost/ModPeoplenum.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/src/components/modifypost/ModPeoplenum.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/src/components/modifypost/ModPlace.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/src/components/modifypost/ModPlace.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/src/components/modifypost/ModSend.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/src/components/modifypost/ModSend.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/src/components/modifypost/ModTime.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/src/components/modifypost/ModTime.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/src/components/modifypost/ModifyPost.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/src/components/modifypost/ModifyPost.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/study/board/controller/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/study/board/controller/BoardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/study/board/entity/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/study/board/entity/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/asset-manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" afterDir="false" />
     </list>
