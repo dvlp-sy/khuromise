@@ -40,6 +40,17 @@ public class BoardController {
         return "message";
     }
 
+    @PostMapping("/api/posts/write")
+    public String createPost(@RequestBody Board board, Model model) {
+
+        boardService.write(board);
+
+        model.addAttribute("message", "글 작성이 완료되었습니다.");
+        model.addAttribute("searchUrl", "/");
+
+        return "message";
+    }
+
     @GetMapping("/board/list")
     public String boardList(Model model,
             @PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.DESC) Pageable pageable,
@@ -122,7 +133,8 @@ public class BoardController {
         boardTemp.setMaxpeople(board.getMaxpeople());
         boardTemp.setGenderdisplay(board.getGenderdisplay());
         boardTemp.setPlacename(board.getPlacename());
-        boardTemp.setPosition(board.getPosition());
+        boardTemp.setLat(board.getLat());
+        boardTemp.setLon(board.getLon());
 
         boardService.write(boardTemp);
 
@@ -164,7 +176,8 @@ public class BoardController {
         board.maxpeople = jobject.getInt("maxpeople");
         board.genderdisplay = jobject.getString("genderdisplay");
         board.placename = jobject.getString("placename");
-        board.position = jobject.getString("position");
+        board.lat = jobject.getString("lat");
+        board.lon = jobject.getString("lon");
 
         boardService.write(board);
 

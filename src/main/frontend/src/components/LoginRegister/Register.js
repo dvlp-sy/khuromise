@@ -11,23 +11,18 @@ const RegisterTemplate = styled.div`
   height: auto;
   margin: 50px auto;
   padding: 40px;
-
   border-radius: 16px;
   box-shadow: 0 0 8px 0 #bcbcbc;
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-
   .head {
     text-align: right;
   }
-
   td {
     padding: 5px;
   }
-
   input {
     width: 160px;
     height: 26px;
@@ -35,23 +30,19 @@ const RegisterTemplate = styled.div`
     border: 1px solid #bcbcbc;
     border-radius: 6px;
   }
-
   .dateInput {
     width: 163px;
     height: 28px;
   }
-
   .genderbox {
     width: 70px;
     margin: 0;
     display: flex;
     align-items: center;
   }
-
   .genderboxbox {
     width: 100px;
   }
-
   button {
     width: 70px;
     height: 30px;
@@ -61,7 +52,6 @@ const RegisterTemplate = styled.div`
     background-color: #f9fafb;
     cursor: pointer;
   }
-
   .genderButton {
     width: 50px;
     height: 20px;
@@ -69,44 +59,36 @@ const RegisterTemplate = styled.div`
     cursor: pointer;
     line-height: 20px;
   }
-
   .emailInput {
     width: 88px;
     height: 26px;
     margin: 0px;
     border: 1px solid #bcbcbc;
   }
-
   .registerButton {
     width: 150px;
     height: 50px;
     margin-top: 30px;
-
     font-size: 20px;
     background-color: #f9fafa;
     cursor: pointer;
   }
-
   .greenText {
     font-size: 12px;
     color: green;
   }
-
   .redText {
     font-size: 12px;
     color: red;
   }
-
   .counter {
     font-size: 12px;
     color: red;
     text-align: right;
   }
-
   .pw {
     -webkit-text-security: disc;
   }
-
   select {
     margin-right: 1px;
   }
@@ -172,7 +154,7 @@ const Register = () => {
 
   //ID 중복확인
   const users = useFetch(`/api/users`);
-  console.log((users))
+  console.log({certification,id, pw, _pw, name});
   const [canId, setCanId] = useState(null);
 
   const idCheckClick = () => {

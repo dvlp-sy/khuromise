@@ -41,6 +41,9 @@ function Time(props) {
     props.setDateValue(dateRef.current.value);
   };
 
+  const hourList = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"];
+  const minuteList = ["00", "05", "10", "15", "20", "25", "30", "35", "40"];
+
   return (
     <TimeBox>
       <DateInputBox>
@@ -63,34 +66,12 @@ function Time(props) {
       </TimeInputBox>
       <TimeInputBox>
         <select ref={hourRef} onChange={onChange2}>
-          <option>01</option>
-          <option>02</option>
-          <option>03</option>
-          <option>04</option>
-          <option>05</option>
-          <option>06</option>
-          <option>07</option>
-          <option>08</option>
-          <option>09</option>
-          <option>10</option>
-          <option>11</option>
-          <option>12</option>
+          {hourList.map((hour)=><option key={hour}>{hour}</option>)}
         </select>
       </TimeInputBox>
       <TimeInputBox>
         <select ref={minuteRef} onChange={onChange3}>
-          <option>00</option>
-          <option>05</option>
-          <option>10</option>
-          <option>15</option>
-          <option>20</option>
-          <option>25</option>
-          <option>30</option>
-          <option>35</option>
-          <option>40</option>
-          <option>45</option>
-          <option>50</option>
-          <option>55</option>
+          {minuteList.map((minute)=><option key={minute}>{minute}</option>)}
         </select>
       </TimeInputBox>
     </TimeBox>

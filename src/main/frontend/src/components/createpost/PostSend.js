@@ -15,13 +15,10 @@ const PostBox = styled.div`
 function PostSend({ titlevalue , contentvalue, noonvalue, hourvalue, minutevalue, peoplenumvalue, datevalue, purposevalue, gendervalue, latvalue, lonvalue, placenamevalue }) {
 
   const users = useFetch(`/api/users`);
-  console.log(users);
   const findUsers = [...users]
   const findUser = findUsers.find((user)=>user.userid === sessionStorage.getItem('LoginUserInfo')) || {};
-  console.log(findUser);
 
   const nextId = useContext(NextPostIdContext);
-  console.log(nextId);
   const navigate = useNavigate();
   let gender = '';
 
@@ -45,15 +42,15 @@ function PostSend({ titlevalue , contentvalue, noonvalue, hourvalue, minutevalue
       alert("성별을 확인해 주세요.")
     }
     else {
-      fetch("/board/writepro", {
+      fetch("/api/posts/write", {
         method : "POST",
         headers : {
-          "Content-Type" : "application/json; charset=UTF-8"
+          "Content-Type" : "application/json; charset=UTF-8",
         },
         body : JSON.stringify({
           "writerid" : sessionStorage.getItem('LoginUserInfo'),
           //"userApply" : [sessionStorage.getItem('LoginUserInfo')],
-          "writergender" : "w",
+          "writergender" : findUser.usergender,
           "date" : datevalue,
           "noon" : noonvalue,
           "hour" : hourvalue,
@@ -62,7 +59,7 @@ function PostSend({ titlevalue , contentvalue, noonvalue, hourvalue, minutevalue
           "genderdisplay" : gendervalue,
           "gendercheck" : gender,
           "currentpeople" : 1,
-          "maxpeople" : Number(peoplenumvalue),
+          "maxpeople" : peoplenumvalue,
           "title" : titlevalue,
           "content" : contentvalue,
           "lat" : latvalue,
