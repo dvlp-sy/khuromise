@@ -5,26 +5,27 @@ const { kakao } = window;
 
 function PostMap() {
   const { id } = useParams(); 
-  const posts = useFetch(`http://localhost:3002/posts?id=${id}`);
-  const post = { ...posts[0] };
-  const position = post.position || [];
+  const post = useFetch(`/api/posts/id/${id}`);
+  const lat = Number(post.lat) || 0;
+  const lon = Number(post.lon) || 0;
+  console.log(lat,lon);
 
   useEffect(()=> {
     const container = document.getElementById("Map");
     
     const options = {
-      center: new kakao.maps.LatLng(position[0], position[1]),
+      center: new kakao.maps.LatLng(lat, lon),
       level: 3
     };
     const map = new kakao.maps.Map(container, options);
 
-    const markerPosition  = new kakao.maps.LatLng(position[0], position[1]); 
+    const markerPosition  = new kakao.maps.LatLng(lat, lon); 
     const marker = new kakao.maps.Marker({
         position: markerPosition
     });
     marker.setMap(map);
     
-  },[position]);
+  },[lat, lon]);
 
   return( 
     <div id='Map'

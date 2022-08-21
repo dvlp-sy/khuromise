@@ -39,7 +39,7 @@ const MapBox = styled.div`
 
 function Place(props) {
   
-  const { setPositionValue, setPlacenameValue } = props;
+  const { setLatValue, setLonValue, setPlacenameValue } = props;
   const [input, setInput] = useState('');
   const [search, setSearch] = useState('');
   
@@ -60,7 +60,7 @@ function Place(props) {
         <button onClick={onClick}>검색</button>
       </SearchBox>
       <MapBox>
-        <Map searchPlace={search} setPositionValue={setPositionValue} setPlacenameValue={setPlacenameValue}/>
+        <Map searchPlace={search} setLatValue={setLatValue} setLonValue={setLonValue} setPlacenameValue={setPlacenameValue}/>
       </MapBox>
     </PlaceBox>
   );
