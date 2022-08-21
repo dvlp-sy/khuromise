@@ -62,6 +62,17 @@ public class BoardController {
         return "message";
     }
 
+    @DeleteMapping("/api/delete/{id}")
+    public String deletePost(@PathVariable("id") Integer id, @RequestBody Board board, Model model){
+
+        boardService.boardDelete(id);
+
+        model.addAttribute("message","글이 삭제되었습니다.");
+        model.addAttribute("searchUrl", "/");
+
+        return "message";
+    }
+
     @GetMapping("/board/list")
     public String boardList(Model model,
             @PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.DESC) Pageable pageable,

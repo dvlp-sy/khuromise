@@ -125,7 +125,9 @@ const Post = (props) => {
   const { id } = useParams();
   const post = useFetch(`/api/posts/id/${id}`);
   const users = useFetch(`/api/users`);
-  const comments = useFetch(`http://localhost:3002/comments?postId=${id}`);
+  //const comments = useFetch(`http://localhost:3002/comments?postId=${id}`);
+
+  console.log(post);
 
   if (post.id === 0) {
     return null;
@@ -143,6 +145,7 @@ const Post = (props) => {
       (user) => user.userid === sessionStorage.getItem("LoginUserInfo")
     ) || {};
   const array = post.userApply || [];
+  console.log(findUser);
 
   const applyClick = () => {
     if (window.confirm("신청하시겠습니까?")) {
@@ -184,9 +187,16 @@ const Post = (props) => {
   // 조건 추가하기 => 글쓴이만 수정 OR 삭제 가능
   const delPost = () => {
     if (window.confirm("정말로 삭제하시겠습니까?")) {
-      fetch(`http://localhost:3002/posts/${post.id}`, {
+      fetch(`/api/delete/${id}`, {
         method: "DELETE",
+        headers : {
+          "Content-Type" : "application/json; charset=UTF-8"
+        },
+        body : JSON.stringify({
+          ...post
+        })
       });
+      /*
       comments.forEach((comment) => {
         fetch(`http://localhost:3002/comments/${comment.id}`, {
           method: "DELETE",
@@ -203,6 +213,7 @@ const Post = (props) => {
           }),
         });
       });
+      */
       alert("삭제가 완료되었습니다.");
       navigate(`/${post.category}`);
     }
