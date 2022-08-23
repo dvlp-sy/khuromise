@@ -88,12 +88,6 @@ function App() {
               element={<ModifyPost isLogin={isLogin} />}
             ></Route>
             <Route path="/mypage" element={<Mypage />}></Route>
-            <Route
-              path="/mypage/mypostlist"
-              element={<Mypostlist setIsLogin={setIsLogin} />}
-            ></Route>
-            <Route path="/mypage/mypromise" element={<Mypromise />}></Route>
-            <Route path="/mypage/myreply" element={<Myreply />}></Route>
           </Routes>
           <Footer isLogin={isLogin} />
         </BrowserRouter>

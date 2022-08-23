@@ -1,5 +1,6 @@
 package com.study.board.controller;
 
+import com.study.board.entity.Board;
 import com.study.board.entity.Comment;
 import com.study.board.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,5 +51,6 @@ public class CommentController {
     public Comment getIdData(@PathVariable("id") Integer id) {
         return commentService.view(id);
     }
+    
 
 }

@@ -5,7 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9dfcc8c3-9a55-4b81-8397-78138e7da488" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/frontend/src/components/Post/Post.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/src/components/Post/Post.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/main/static/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/static/asset-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/main/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/static/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/build/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/build/asset-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/build/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/src/components/Mypage/Mypage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/src/components/Mypage/Mypage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/study/board/controller/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/study/board/controller/CommentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/asset-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
