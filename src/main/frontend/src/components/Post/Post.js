@@ -125,9 +125,8 @@ const Post = (props) => {
   const { id } = useParams();
   const post = useFetch(`/api/posts/id/${id}`);
   const users = useFetch(`/api/users`);
-  //const comments = useFetch(`http://localhost:3002/comments?postId=${id}`);
-
-  console.log(post);
+  const comments = useFetch(`/api/comment/data/${id}`);
+  console.log(comments);
 
   if (post.id === 0) {
     return null;
@@ -145,7 +144,6 @@ const Post = (props) => {
       (user) => user.userid === sessionStorage.getItem("LoginUserInfo")
     ) || {};
   const array = post.userApply || [];
-  console.log(findUser);
 
   const applyClick = () => {
     if (window.confirm("신청하시겠습니까?")) {
@@ -157,15 +155,14 @@ const Post = (props) => {
           post.genderCheck === findUser.usergender
         ) {
           const userArray = array.concat([findUser.userid]);
-          console.log(userArray);
-          fetch(`http://localhost:3002/posts/${post.id}`, {
+          fetch(`/api/posts/id/${post.id}`, {
             method: "PUT",
             headers: {
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
               ...post,
-              userApply: userArray,
+              //userApply: userArray,
               currentpeople: currentpeople + 1,
             }),
           }).then((res) => {
@@ -196,12 +193,18 @@ const Post = (props) => {
           ...post
         })
       });
-      /*
       comments.forEach((comment) => {
-        fetch(`http://localhost:3002/comments/${comment.id}`, {
+        fetch(`/api/comment/delete/${comment.id}`, {
           method: "DELETE",
+          headers: {
+            "Content-Type": "application/json; charset=UTF-8",
+          },
+          body : JSON.stringify({
+            ...comment
+          })
         }).then((res) => console.log(comment.id));
       });
+      /*
       users.forEach((user) => {
         fetch("http://localhost:3002/users", {
           method: "POST",
@@ -262,7 +265,7 @@ const Post = (props) => {
               </div>
               <Buttons>
                 {/* 작성자만 수정 OR 삭제 가능 */}
-                {post.writerId === findUser.userId && (
+                {post.writerid === findUser.userid && (
                   <button
                     onClick={() =>
                       navigate(`/${post.category}/${post.id}/modifypost`)
@@ -271,13 +274,14 @@ const Post = (props) => {
                     수정
                   </button>
                 )}
-                {post.writerId === findUser.userId && (
+                {post.writerid === findUser.userid && (
                   <button onClick={delPost}>삭제</button>
                 )}
               </Buttons>
             </PostBody>
           </PostBlock>
-          {/*<Comment id={id} visible={post.userApply.includes(findUser.userId)} />*/}
+          <Comment id={id} />
+          
         </>
       ) : (
         <EmptyPage />
@@ -286,4 +290,5 @@ const Post = (props) => {
   );
 };
 
+//visible={post.userApply.includes(findUser.userId)} 
 export default Post;

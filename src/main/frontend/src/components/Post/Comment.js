@@ -77,17 +77,17 @@ const ErrorBox = styled.div`
 `;
 
 const Comment = ({ id, visible }) => {
-  const users = useFetch(`http://localhost:3002/users`);
-
-  const nextId = useContext(NextCommentIdContext);
-  const findUsers = [...users];
+  const findUsers = useFetch(`/api/users`);
   const findUser =
     findUsers.find(
-      (user) => user.userId === sessionStorage.getItem("LoginUserInfo")
+      (user) => user.userid === sessionStorage.getItem("LoginUserInfo")
     ) || {};
 
-  const writerId = findUser.userId;
-  const writerName = findUser.userName;
+  //console.log(findUsers);
+  //console.log(findUser);
+
+  const writerId = findUser.userid;
+  const writerName = findUser.username;
   const commentRef = useRef(null);
   const [writingComment, setWritingComment] = useState(null);
   const commentChange = () => {
@@ -95,20 +95,20 @@ const Comment = ({ id, visible }) => {
   };
   const commentSubmit = () => {
     if (writingComment) {
-      fetch("http://localhost:3002/comments", {
+      fetch("/api/comment/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json; charset=UTF-8",
         },
         body: JSON.stringify({
-          id: nextId,
-          postId: id,
-          writerId: writerId,
-          writerName: writerName,
+          postid: Number(id),
+          writerid: writerId,
+          writername: writerName,
           comment: writingComment,
         }),
       }).then((res) => {
         if (res.ok) {
+          alert("댓글이 등록되었습니다")
           window.location.reload();
         }
       });
@@ -119,7 +119,6 @@ const Comment = ({ id, visible }) => {
 
   return (
     <CommentBlock>
-      {visible ? (
         <>
           <WriteForm>
             <input
@@ -140,6 +139,8 @@ const Comment = ({ id, visible }) => {
             <CommentItem id={id} />
           </CommentBox>
         </>
+        {/*
+      {visible ? (
       ) : (
         <>
           <WriteForm>
@@ -155,6 +156,7 @@ const Comment = ({ id, visible }) => {
           </CommentBox>
         </>
       )}
+      */}
     </CommentBlock>
   );
 };
