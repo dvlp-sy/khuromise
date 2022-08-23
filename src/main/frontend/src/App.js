@@ -73,7 +73,7 @@ function App() {
               element={<PostList isLogin={isLogin} />}
             ></Route>
             <Route
-              path="/:category/:id"
+              path="/posts/:id"
               element={<Post isLogin={isLogin} />}
             ></Route>
             <Route
@@ -81,7 +81,7 @@ function App() {
               element={<CreatePost isLogin={isLogin} />}
             ></Route>
             <Route
-              path="/:category/:id/modifypost"
+              path="/posts/:id/modifypost"
               element={<ModifyPost isLogin={isLogin} setIsLogin={setIsLogin} />}
             ></Route>
             <Route

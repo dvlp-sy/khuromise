@@ -221,13 +221,15 @@ function Mypage({ isLogin, setIsLogin }) {
 
   function CommentList() {
     return userComments.map((comment) => (
-      <CommentItemBox>
-        <div className="userId">{comment.writername}</div>
-        <div className="comment">{comment.comment}</div>
-        <button className="delBtn" onClick={() => delComment(comment)}>
-          삭제
-        </button>
-      </CommentItemBox>
+      <Link to={`/posts/${comment.postid}`}>
+        <CommentItemBox>
+          <div className="userId">{comment.writername}</div>
+          <div className="comment">{comment.comment}</div>
+          <button className="delBtn" onClick={() => delComment(comment)}>
+            삭제
+          </button>
+        </CommentItemBox>
+      </Link>
     ));
   }
 
