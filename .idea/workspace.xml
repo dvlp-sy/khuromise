@@ -6,22 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="9dfcc8c3-9a55-4b81-8397-78138e7da488" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/main/com/study/board/controller/CommentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/com/study/board/controller/CommentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/main/com/study/board/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/com/study/board/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/main/com/study/board/repository/CommentRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/com/study/board/repository/CommentRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/main/com/study/board/service/CommentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/com/study/board/service/CommentService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/main/com/study/board/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/com/study/board/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/study/board/controller/CommentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/study/board/controller/CommentController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/study/board/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/study/board/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/study/board/repository/CommentRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/study/board/repository/CommentRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/study/board/service/CommentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/study/board/service/CommentService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/study/board/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/study/board/service/UserService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/frontend/src/components/Main/Post5.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/src/components/Main/Post5.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/frontend/src/components/Mypage/Mypage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/src/components/Mypage/Mypage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/frontend/src/components/Mypage/Mypostlist.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/frontend/src/components/Mypage/Mypromise.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/frontend/src/components/Mypage/Myreply.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/study/board/controller/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/study/board/controller/CommentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/study/board/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/study/board/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/study/board/repository/CommentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/study/board/repository/CommentRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/study/board/service/CommentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/study/board/service/CommentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/study/board/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/study/board/service/UserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

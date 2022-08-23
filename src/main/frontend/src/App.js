@@ -84,7 +84,7 @@ function App() {
               path="/:category/:id/modifypost"
               element={<ModifyPost isLogin={isLogin} setIsLogin={setIsLogin} />}
             ></Route>
-            <Route path="/mypage" element={<Mypage />}></Route>
+            <Route path="/mypage" element={<Mypage setIsLogin={setIsLogin} />}></Route>
           </Routes>
           <Footer isLogin={isLogin} />
         </BrowserRouter>
