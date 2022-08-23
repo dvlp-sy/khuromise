@@ -56,23 +56,10 @@ const CommentItem = ({ id }) => {
         headers: {
           "Content-Type": "application/json; charset=UTF-8",
         },
-        body : JSON.stringify({
-          ...comment
-        })
+        body: JSON.stringify({
+          ...comment,
+        }),
       });
-      /*
-      users.forEach((user) => {
-        fetch("http://localhost:3002/users", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json; charset=UTF-8",
-          },
-          body: JSON.stringify({
-            ...user,
-          }),
-        });
-      });
-      */
       alert("삭제가 완료되었습니다.");
       window.location.reload();
     }

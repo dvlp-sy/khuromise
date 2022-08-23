@@ -29,4 +29,8 @@ public class UserapplyService {
         return userapplyRepository.findByPostidContaining(postid);
     }
 
+    @Transactional
+    public List<Userapply> getUseridData(String userid){
+        return userapplyRepository.findByUseridContaining(userid);
+    }
 }

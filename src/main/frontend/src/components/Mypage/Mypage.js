@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import useFetch from "../../hooks/useFetch";
 import PostListItem from "../PostList/PostListItem";
+import CommentItem from "../Post/CommentItem";
 
 const Mypagecontainer = styled.div`
   width: 100%;
@@ -62,6 +63,39 @@ const Button2 = styled.button`
   margin-top: 20px;
 `;
 
+const CommentItemBox = styled.div`
+  width: 97%;
+  height: auto;
+  padding: 10px;
+  margin-bottom: 10px;
+
+  border: 1px solid #bcbcbc;
+  border-radius: 6px;
+  display: flex;
+  padding: 10px;
+
+  .userId {
+    width: 70px;
+    height: auto;
+    margin-top: 10px;
+  }
+
+  .comment {
+    width: 90%;
+    height: auto;
+    margin: 10px 0;
+  }
+
+  .delBtn {
+    width: 40px;
+    height: 20px;
+    font-size: 8px;
+    border: none;
+    background-color: transparent;
+    color: #ababab;
+  }
+`;
+
 function Mypage({ isLogin, setIsLogin }) {
   const findUsers = useFetch("/api/users");
   const findUser =
@@ -69,7 +103,6 @@ function Mypage({ isLogin, setIsLogin }) {
       (user) => user.userid === sessionStorage.getItem("LoginUserInfo")
     ) || {};
   const userInfoId = findUser.id;
-  console.log(userInfoId);
 
   const [list, setList] = useState([]);
   const posts = useFetch(`/api/posts`);
@@ -80,6 +113,11 @@ function Mypage({ isLogin, setIsLogin }) {
     navigate(`/`);
     window.location.reload();
   };
+  const comments = useFetch("/api/comment/all");
+  console.log(comments);
+  const userComments = comments.filter(
+    (comment) => comment.writerid === findUser.userid
+  );
 
   const [checks, setCheck] = useState([
     {
@@ -165,6 +203,34 @@ function Mypage({ isLogin, setIsLogin }) {
     ));
   }
 
+  const delComment = (comment) => {
+    if (window.confirm("정말로 삭제하시겠습니까?")) {
+      fetch(`/api/comment/delete/${comment.id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json; charset=UTF-8",
+        },
+        body: JSON.stringify({
+          ...comment,
+        }),
+      });
+      alert("삭제가 완료되었습니다.");
+      window.location.reload();
+    }
+  };
+
+  function CommentList() {
+    return userComments.map((comment) => (
+      <CommentItemBox>
+        <div className="userId">{comment.writername}</div>
+        <div className="comment">{comment.comment}</div>
+        <button className="delBtn" onClick={() => delComment(comment)}>
+          삭제
+        </button>
+      </CommentItemBox>
+    ));
+  }
+
   if (posts[0].id === 0) {
     return null;
   }
@@ -175,26 +241,10 @@ function Mypage({ isLogin, setIsLogin }) {
       headers: {
         "Content-Type": "application/json; charset=UTF-8",
       },
-      body : JSON.stringify({
-        ...findUser
-      })
+      body: JSON.stringify({
+        ...findUser,
+      }),
     });
-    /*
-    users
-      .filter((user) => user.id !== findUser.id)
-      
-      .forEach((user) => {
-        fetch("http://localhost:3002/users", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json; charset=UTF-8",
-          },
-          body: JSON.stringify({
-            ...user,
-          }),
-        });
-      });
-    */
     sessionStorage.removeItem("LoginUserInfo");
     setIsLogin(false);
     alert("회원탈퇴 성공");
@@ -219,6 +269,7 @@ function Mypage({ isLogin, setIsLogin }) {
             {list === "게시글" && (
               <PostList onToggle={onToggle} isLogin={isLogin} />
             )}
+            {list === "댓글" && <CommentList />}
           </div>
         </Mypagebox>
       </Mypagecontainer>

@@ -132,18 +132,17 @@ const Post = (props) => {
       (user) => user.userid === sessionStorage.getItem("LoginUserInfo")
     ) || {};
   const comments = useFetch(`/api/comment/data/${id}`);
-  const userapply = useApplyFetch(`/api/userapply/data/${id}`);
+  const userapply = Array(useApplyFetch(`/api/userapply/data/${id}`));
   const userlist = userapply.map((user) => user.userid);
-  //console.log(comments);
+  // console.log(comments);
 
   if (post.id === 0) {
     return null;
   }
   const date = String(post.date);
   const currentpeople = Number(post.currentpeople);
-  
-  
-  //const applylist = 
+
+  //const applylist =
   //const array = post.userApply || [];
 
   console.log(userapply);
@@ -152,7 +151,10 @@ const Post = (props) => {
 
   const applyClick = () => {
     if (window.confirm("신청하시겠습니까?")) {
-      if (userlist.includes(findUser.userid) || findUser.userid === post.writerid) {
+      if (
+        userlist.includes(findUser.userid) ||
+        findUser.userid === post.writerid
+      ) {
         alert("이미 신청되었습니다.");
       } else if (post.currentpeople < post.maxpeople) {
         if (
@@ -169,16 +171,16 @@ const Post = (props) => {
               //userApply: userArray,
               currentpeople: currentpeople + 1,
             }),
-          })
+          });
           fetch(`/api/userapply`, {
-            method : "POST",
-            headers : {
-              "Content-Type": "application/json"
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
             },
-            body : JSON.stringify({
-              userid : sessionStorage.getItem("LoginUserInfo"),
-              postid : String(id)
-            })
+            body: JSON.stringify({
+              userid: sessionStorage.getItem("LoginUserInfo"),
+              postid: String(id),
+            }),
           }).then((res) => {
             if (res.ok) {
               alert("신청이 완료되었습니다.");
@@ -200,12 +202,12 @@ const Post = (props) => {
     if (window.confirm("정말로 삭제하시겠습니까?")) {
       fetch(`/api/delete/${id}`, {
         method: "DELETE",
-        headers : {
-          "Content-Type" : "application/json; charset=UTF-8"
+        headers: {
+          "Content-Type": "application/json; charset=UTF-8",
         },
-        body : JSON.stringify({
-          ...post
-        })
+        body: JSON.stringify({
+          ...post,
+        }),
       });
       comments.forEach((comment) => {
         fetch(`/api/comment/delete/${comment.id}`, {
@@ -213,9 +215,9 @@ const Post = (props) => {
           headers: {
             "Content-Type": "application/json; charset=UTF-8",
           },
-          body : JSON.stringify({
-            ...comment
-          })
+          body: JSON.stringify({
+            ...comment,
+          }),
         }).then((res) => console.log(comment.id));
       });
       /*
@@ -294,8 +296,13 @@ const Post = (props) => {
               </Buttons>
             </PostBody>
           </PostBlock>
-          <Comment id={id} visible={userlist.includes(findUser.userid) || findUser.userid === post.writerid} />
-          
+          <Comment
+            id={id}
+            visible={
+              userlist.includes(findUser.userid) ||
+              findUser.userid === post.writerid
+            }
+          />
         </>
       ) : (
         <EmptyPage />

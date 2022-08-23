@@ -108,7 +108,7 @@ const Comment = ({ id, visible }) => {
         }),
       }).then((res) => {
         if (res.ok) {
-          alert("댓글이 등록되었습니다")
+          alert("댓글이 등록되었습니다");
           window.location.reload();
         }
       });
@@ -128,19 +128,19 @@ const Comment = ({ id, visible }) => {
               type="text"
               ref={commentRef}
               onChange={commentChange}
-              />
+            />
             <input
               className="writeSubmit"
               placeholder="댓글달기"
               type="submit"
               onClick={commentSubmit}
-              />
+            />
           </WriteForm>
           <CommentBox>
             <CommentItem id={id} />
           </CommentBox>
         </>
-        ) : (
+      ) : (
         <>
           <WriteForm>
             <input

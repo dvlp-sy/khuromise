@@ -36,4 +36,10 @@ public class UserapplyController {
     public List<Userapply> getPostidData(@PathVariable String postid) {
         return userapplyService.getPostidData(postid);
     }
+
+    @GetMapping("/api/userapply/data/{userid}")
+    @ResponseBody
+    public List<Userapply> getCategoryData(@PathVariable String userid) {
+        return userapplyService.getUseridData(userid);
+    }
 }
