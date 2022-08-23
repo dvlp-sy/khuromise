@@ -152,7 +152,7 @@ const Post = (props) => {
 
   const applyClick = () => {
     if (window.confirm("신청하시겠습니까?")) {
-      if (userlist.includes(findUser.userid)) {
+      if (userlist.includes(findUser.userid) || findUser.userid === post.writerid) {
         alert("이미 신청되었습니다.");
       } else if (post.currentpeople < post.maxpeople) {
         if (
@@ -221,7 +221,7 @@ const Post = (props) => {
       /*
       users.forEach((user) => {
         fetch("http://localhost:3002/users", {
-          method: "POST",
+          method: "POST", 
           headers: {
             "Content-Type": "application/json; charset=UTF-8",
           },

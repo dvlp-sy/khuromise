@@ -5,17 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9dfcc8c3-9a55-4b81-8397-78138e7da488" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/study/board/controller/UserapplyController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/study/board/entity/Userapply.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/study/board/repository/UserapplyRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/study/board/service/UserapplyService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/main/com/study/board/controller/CommentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/com/study/board/controller/CommentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/main/com/study/board/entity/Comment.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/com/study/board/entity/Comment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/main/com/study/board/repository/CommentRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/com/study/board/repository/CommentRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/main/com/study/board/service/CommentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/com/study/board/service/CommentService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/frontend/src/components/Post/Comment.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/src/components/Post/Comment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/frontend/src/components/Post/CommentItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/src/components/Post/CommentItem.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/frontend/src/components/Post/Post.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/src/components/Post/Post.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
