@@ -95,7 +95,7 @@ const Comment = ({ id, visible }) => {
   };
   const commentSubmit = () => {
     if (writingComment) {
-      fetch("/api/comment/", {
+      fetch("/api/comment", {
         method: "POST",
         headers: {
           "Content-Type": "application/json; charset=UTF-8",

@@ -1,5 +1,6 @@
 package com.study.board.controller;
 
+import com.study.board.entity.Board;
 import com.study.board.entity.Comment;
 import com.study.board.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,7 @@ public class CommentController {
     private CommentService commentService;
 
     @PostMapping("/api/comment")
-    public String createComment(@RequestBody Comment comment, Model model) {
+    public String createPost(@RequestBody Comment comment, Model model) {
 
         commentService.write(comment);
 
@@ -42,10 +43,9 @@ public class CommentController {
 
     @GetMapping("/api/comment/data/{postid}")
     @ResponseBody
-    public List<Comment> getCategoryData(@PathVariable Integer postid) {
+    public List<Comment> getPostidData(@PathVariable("postid") Integer postid) {
         return commentService.getPostidData(postid);
     }
-
 
     @GetMapping("/api/comment/id/{id}")
     @ResponseBody

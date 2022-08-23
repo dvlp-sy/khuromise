@@ -36,7 +36,7 @@ const CommentItemBox = styled.div`
 
 const CommentItem = ({ id }) => {
   const comments = useFetch(`/api/comment/data/${id}`);
-  const findUsers = useFetch(`/api/posts`);
+  const findUsers = useFetch(`/api/users`);
   const findUser =
     findUsers.find(
       (user) => user.userid === sessionStorage.getItem("LoginUserInfo")
