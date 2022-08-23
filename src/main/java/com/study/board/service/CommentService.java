@@ -24,7 +24,7 @@ public class CommentService {
     }
 
     @Transactional
-    public List<Comment> getPostidData(Integer postid){
+    public List<Comment> getPostidData(String postid){
         return commentRepository.findByPostidContaining(postid);
     }
 

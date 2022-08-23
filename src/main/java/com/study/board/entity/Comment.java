@@ -13,7 +13,7 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer id;
 
-    public Integer postid;
+    public String postid;
 
     public String writerid;
 

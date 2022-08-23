@@ -1,6 +1,5 @@
 package com.study.board.controller;
 
-import com.study.board.entity.Board;
 import com.study.board.entity.Comment;
 import com.study.board.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +9,6 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
@@ -43,7 +41,7 @@ public class CommentController {
 
     @GetMapping("/api/comment/data/{postid}")
     @ResponseBody
-    public List<Comment> getPostidData(@PathVariable("postid") Integer postid) {
+    public List<Comment> getPostidData(@PathVariable String postid) {
         return commentService.getPostidData(postid);
     }
 
