@@ -8,6 +8,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import EmptyPage from "../EmptyPage";
 import Comment from "./Comment";
 import PostMap from "./PostMap";
+import useApplyFetch from "../../hooks/useApplyFetch";
 
 const PostBlock = styled.div`
   width: 100%;
@@ -125,37 +126,40 @@ const Post = (props) => {
   const { id } = useParams();
   const post = useFetch(`/api/posts/id/${id}`);
   const users = useFetch(`/api/users`);
+  const findUsers = [...users];
+  const findUser =
+    findUsers.find(
+      (user) => user.userid === sessionStorage.getItem("LoginUserInfo")
+    ) || {};
   const comments = useFetch(`/api/comment/data/${id}`);
-  console.log(comments);
+  const userapply = useApplyFetch(`/api/userapply/data/${id}`);
+  const userlist = userapply.map((user) => user.userid);
+  //console.log(comments);
 
   if (post.id === 0) {
     return null;
   }
   const date = String(post.date);
   const currentpeople = Number(post.currentpeople);
+  
+  
+  //const applylist = 
+  //const array = post.userApply || [];
 
-  // const { isLogin } = props;
-
-  // 조건 추가하기 => 성별이 조건에 만족한다면 진행
-
-  const findUsers = [...users];
-  const findUser =
-    findUsers.find(
-      (user) => user.userid === sessionStorage.getItem("LoginUserInfo")
-    ) || {};
-  const array = post.userApply || [];
+  console.log(userapply);
+  console.log(userlist);
+  console.log(findUser.userid);
 
   const applyClick = () => {
     if (window.confirm("신청하시겠습니까?")) {
-      if (array.includes(findUser.userid)) {
+      if (userlist.includes(findUser.userid)) {
         alert("이미 신청되었습니다.");
       } else if (post.currentpeople < post.maxpeople) {
         if (
-          post.genderCheck === "b" ||
-          post.genderCheck === findUser.usergender
+          post.gendercheck === "b" ||
+          post.gendercheck === findUser.usergender
         ) {
-          const userArray = array.concat([findUser.userid]);
-          fetch(`/api/posts/id/${post.id}`, {
+          fetch(`/api/posts/modify/${post.id}`, {
             method: "PUT",
             headers: {
               "Content-Type": "application/json",
@@ -165,6 +169,16 @@ const Post = (props) => {
               //userApply: userArray,
               currentpeople: currentpeople + 1,
             }),
+          })
+          fetch(`/api/userapply`, {
+            method : "POST",
+            headers : {
+              "Content-Type": "application/json"
+            },
+            body : JSON.stringify({
+              userid : sessionStorage.getItem("LoginUserInfo"),
+              postid : String(id)
+            })
           }).then((res) => {
             if (res.ok) {
               alert("신청이 완료되었습니다.");
@@ -280,7 +294,7 @@ const Post = (props) => {
               </Buttons>
             </PostBody>
           </PostBlock>
-          <Comment id={id} />
+          <Comment id={id} visible={userlist.includes(findUser.userid) || findUser.userid === post.writerid} />
           
         </>
       ) : (
@@ -290,5 +304,4 @@ const Post = (props) => {
   );
 };
 
-//visible={post.userApply.includes(findUser.userId)} 
 export default Post;

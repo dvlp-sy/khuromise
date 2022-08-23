@@ -101,7 +101,7 @@ const Comment = ({ id, visible }) => {
           "Content-Type": "application/json; charset=UTF-8",
         },
         body: JSON.stringify({
-          postid: Number(id),
+          postid: String(id),
           writerid: writerId,
           writername: writerName,
           comment: writingComment,
@@ -119,6 +119,7 @@ const Comment = ({ id, visible }) => {
 
   return (
     <CommentBlock>
+      {visible ? (
         <>
           <WriteForm>
             <input
@@ -127,21 +128,19 @@ const Comment = ({ id, visible }) => {
               type="text"
               ref={commentRef}
               onChange={commentChange}
-            />
+              />
             <input
               className="writeSubmit"
               placeholder="댓글달기"
               type="submit"
               onClick={commentSubmit}
-            />
+              />
           </WriteForm>
           <CommentBox>
             <CommentItem id={id} />
           </CommentBox>
         </>
-        {/*
-      {visible ? (
-      ) : (
+        ) : (
         <>
           <WriteForm>
             <input
@@ -156,7 +155,6 @@ const Comment = ({ id, visible }) => {
           </CommentBox>
         </>
       )}
-      */}
     </CommentBlock>
   );
 };

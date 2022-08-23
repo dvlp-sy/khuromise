@@ -42,8 +42,8 @@ const CommentItem = ({ id }) => {
       (user) => user.userid === sessionStorage.getItem("LoginUserInfo")
     ) || {};
 
-  console.log(findUser);
-  console.log(comments);
+  //console.log(findUser);
+  //console.log(comments);
 
   if (!comments[0] || comments[0].id === 0) {
     return null;
@@ -85,11 +85,11 @@ const CommentItem = ({ id }) => {
           <CommentItemBox key={comment.id}>
             <div className="userId">{comment.writername}</div>
             <div className="comment">{comment.comment}</div>
+            {findUser.userid === comment.writerid && (
               <button className="delBtn" onClick={() => delComment(comment)}>
                 삭제
               </button>
-            {/*{findUser.userid === comment.writerid && (
-            )}*/}
+            )}
           </CommentItemBox>
         );
       })}
