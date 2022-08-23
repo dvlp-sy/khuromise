@@ -132,7 +132,7 @@ const Post = (props) => {
       (user) => user.userid === sessionStorage.getItem("LoginUserInfo")
     ) || {};
   const comments = useFetch(`/api/comment/data/${id}`);
-  const userapply = Array(useApplyFetch(`/api/userapply/data/${id}`));
+  const userapply = useApplyFetch(`/api/userapply/data/${id}`);
   const userlist = userapply.map((user) => user.userid);
   // console.log(comments);
 
@@ -188,11 +188,10 @@ const Post = (props) => {
             }
           });
         } else {
-          alert("신청이 불가능합니다.");
+          alert("성별이 달라 신청이 불가능합니다.");
         }
       } else {
         alert("모집 인원이 가득 찼습니다.");
-        window.location.reload();
       }
     }
   };
