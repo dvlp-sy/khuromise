@@ -62,13 +62,14 @@ const Button2 = styled.button`
   margin-top: 20px;
 `;
 
-function Mypage({ isLogin }) {
-  const users = useFetch("/api/users");
-  const findUsers = [...users];
+function Mypage({ isLogin, setIsLogin }) {
+  const findUsers = useFetch("/api/users");
   const findUser =
     findUsers.find(
       (user) => user.userid === sessionStorage.getItem("LoginUserInfo")
     ) || {};
+  const userInfoId = findUser.id;
+  console.log(userInfoId);
 
   const [list, setList] = useState([]);
   const posts = useFetch(`/api/posts`);
@@ -168,13 +169,45 @@ function Mypage({ isLogin }) {
     return null;
   }
 
+  const delUser = () => {
+    fetch(`/api/delete/user/${userInfoId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json; charset=UTF-8",
+      },
+      body : JSON.stringify({
+        ...findUser
+      })
+    });
+    /*
+    users
+      .filter((user) => user.id !== findUser.id)
+      
+      .forEach((user) => {
+        fetch("http://localhost:3002/users", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json; charset=UTF-8",
+          },
+          body: JSON.stringify({
+            ...user,
+          }),
+        });
+      });
+    */
+    sessionStorage.removeItem("LoginUserInfo");
+    setIsLogin(false);
+    alert("회원탈퇴 성공");
+    navigate("/");
+  };
+
   return (
     <div>
       <Mypagecontainer>
         <Mypagebox>
           <div className="item">사진</div>
           <div className="item">
-            <Button2>나의정보수정</Button2>
+            <Button2 onClick={delUser}>회원탈퇴</Button2>
             <Button2 onClick={logOut}>로그아웃</Button2>
           </div>
           <div className="item">

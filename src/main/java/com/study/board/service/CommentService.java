@@ -33,4 +33,8 @@ public class CommentService {
         return commentRepository.findById(id).get();
     }
 
+    public List<Comment> getAllData() {
+        return commentRepository.findAllByOrderById();
+    }
+
 }

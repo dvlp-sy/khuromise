@@ -9,4 +9,6 @@ import java.util.List;
 public interface CommentRepository extends JpaRepository<Comment, Integer> {
 
     List<Comment> findByPostidContaining(String postid);
+
+    List<Comment> findAllByOrderById();
 }

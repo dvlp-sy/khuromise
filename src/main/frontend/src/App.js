@@ -13,10 +13,7 @@ import Register from "./components/LoginRegister/Register";
 import Mainpage from "./components/Main/Mainpage";
 import ModifyPost from "./components/modifypost/ModifyPost";
 import { useEffect, useContext, useState } from "react";
-import Mypostlist from "./components/Mypage/Mypostlist";
 import Mypage from "./components/Mypage/Mypage";
-import Mypromise from "./components/Mypage/Mypromise";
-import Myreply from "./components/Mypage/Myreply";
 
 const GlobalStyle = createGlobalStyle`
   :root {
@@ -85,7 +82,7 @@ function App() {
             ></Route>
             <Route
               path="/:category/:id/modifypost"
-              element={<ModifyPost isLogin={isLogin} />}
+              element={<ModifyPost isLogin={isLogin} setIsLogin={setIsLogin} />}
             ></Route>
             <Route path="/mypage" element={<Mypage />}></Route>
           </Routes>

@@ -51,6 +51,11 @@ public class CommentController {
     public Comment getIdData(@PathVariable("id") Integer id) {
         return commentService.view(id);
     }
-    
+
+    @GetMapping("/api/comment/all")
+    @ResponseBody
+    public List<Comment> getAllData(){
+        return commentService.getAllData();
+    }
 
 }
