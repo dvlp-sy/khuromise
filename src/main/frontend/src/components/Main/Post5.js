@@ -45,7 +45,7 @@ const Listbox = styled.div`
 
 function Post5(props){
   const { isLogin } = props;
-  const posts = useFetch(`http://localhost:3002/posts`);
+  const posts = useFetch(`/api/posts`);
  
   const [postList, setList] = useState([]);
   
@@ -121,11 +121,10 @@ function Post5(props){
                   noon={post.noon}
                   hour={post.hour}
                   minute={post.minute}
-                  placeName={post.placeName}
-                  genderDisplay={post.genderDisplay}
-                  currentPeople={post.currentPeople}
-                  maxPeople={post.maxPeople}
-                  writtenTime={post.writtenTime}
+                  placeName={post.placename}
+                  genderDisplay={post.genderdisplay}
+                  currentPeople={post.currentpeople}
+                  maxPeople={post.maxpeople}
                   isLogin={isLogin}
                 />
         )

@@ -40,7 +40,7 @@ function ModGenderList(props) {
   ];
 
   const [currentgender, setGender] = useState([]);
-  const gender = props.mypost.genderDisplay;
+  const gender = props.mypost.genderdisplay;
   
   useEffect(() => {
     setGender(gen.map(gend => (

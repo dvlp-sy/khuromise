@@ -35,33 +35,30 @@ const CommentItemBox = styled.div`
 `;
 
 const CommentItem = ({ id }) => {
-  const comments = useFetch(`http://localhost:3002/comments?postId=${id}`);
-  const users = useFetch(`http://localhost:3002/users`);
-  const findUsers = [...users];
+  const comments = useFetch(`/api/comment/data/${id}`);
+  const findUsers = useFetch(`/api/users`);
   const findUser =
     findUsers.find(
-      (user) => user.userId === sessionStorage.getItem("LoginUserInfo")
+      (user) => user.userid === sessionStorage.getItem("LoginUserInfo")
     ) || {};
+
+  //console.log(findUser);
+  //console.log(comments);
 
   if (!comments[0] || comments[0].id === 0) {
     return null;
   }
 
-  const delComment = (commentId) => {
+  const delComment = (comment) => {
     if (window.confirm("정말로 삭제하시겠습니까?")) {
-      fetch(`http://localhost:3002/comments/${commentId}`, {
+      fetch(`/api/comment/delete/${comment.id}`, {
         method: "DELETE",
-      });
-      users.forEach((user) => {
-        fetch("http://localhost:3002/users", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json; charset=UTF-8",
-          },
-          body: JSON.stringify({
-            ...user,
-          }),
-        });
+        headers: {
+          "Content-Type": "application/json; charset=UTF-8",
+        },
+        body: JSON.stringify({
+          ...comment,
+        }),
       });
       alert("삭제가 완료되었습니다.");
       window.location.reload();
@@ -73,10 +70,10 @@ const CommentItem = ({ id }) => {
       {comments.map((comment) => {
         return (
           <CommentItemBox key={comment.id}>
-            <div className="userId">{comment.writerName}</div>
+            <div className="userId">{comment.writername}</div>
             <div className="comment">{comment.comment}</div>
-            {findUser.userId === comment.writerId && (
-              <button className="delBtn" onClick={() => delComment(comment.id)}>
+            {findUser.userid === comment.writerid && (
+              <button className="delBtn" onClick={() => delComment(comment)}>
                 삭제
               </button>
             )}

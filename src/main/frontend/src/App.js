@@ -13,10 +13,7 @@ import Register from "./components/LoginRegister/Register";
 import Mainpage from "./components/Main/Mainpage";
 import ModifyPost from "./components/modifypost/ModifyPost";
 import { useEffect, useContext, useState } from "react";
-import Mypostlist from "./components/Mypage/Mypostlist";
 import Mypage from "./components/Mypage/Mypage";
-import Mypromise from "./components/Mypage/Mypromise";
-import Myreply from "./components/Mypage/Myreply";
 
 const GlobalStyle = createGlobalStyle`
   :root {
@@ -76,7 +73,7 @@ function App() {
               element={<PostList isLogin={isLogin} />}
             ></Route>
             <Route
-              path="/:category/:id"
+              path="/posts/:id"
               element={<Post isLogin={isLogin} />}
             ></Route>
             <Route
@@ -84,16 +81,13 @@ function App() {
               element={<CreatePost isLogin={isLogin} />}
             ></Route>
             <Route
-              path="/:category/:id/modifypost"
-              element={<ModifyPost isLogin={isLogin} />}
+              path="/posts/:id/modifypost"
+              element={<ModifyPost isLogin={isLogin} setIsLogin={setIsLogin} />}
             ></Route>
-            <Route path="/mypage" element={<Mypage />}></Route>
             <Route
-              path="/mypage/mypostlist"
-              element={<Mypostlist setIsLogin={setIsLogin} />}
+              path="/mypage"
+              element={<Mypage isLogin={isLogin} setIsLogin={setIsLogin} />}
             ></Route>
-            <Route path="/mypage/mypromise" element={<Mypromise />}></Route>
-            <Route path="/mypage/myreply" element={<Myreply />}></Route>
           </Routes>
           <Footer isLogin={isLogin} />
         </BrowserRouter>

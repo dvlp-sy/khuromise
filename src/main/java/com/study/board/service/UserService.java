@@ -22,4 +22,9 @@ public class UserService {
     public List<User> getAllUsers() {
         return userRepository.findAllByOrderById();
     }
+
+    public void delete(Integer id){
+
+        userRepository.deleteById(id);
+    }
 }

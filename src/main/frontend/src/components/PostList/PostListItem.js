@@ -44,7 +44,7 @@ const Title = styled.div`
   font-weight: bold;
   border: none;
   background-color: white;
-  cursor : pointer;
+  cursor: pointer;
 
   display: flex;
   justify-content: flex-start;
@@ -94,20 +94,19 @@ const PostListItem = ({
   genderDisplay,
   currentPeople,
   maxPeople,
-  isLogin
+  isLogin,
 }) => {
   const _date = date.split("-");
 
   const navigate = useNavigate();
   const onClick = () => {
     if (isLogin === true) {
-      navigate(`/${category}/${id}`);
-    }
-    else {
+      navigate(`/posts/${id}`);
+    } else {
       alert("로그인 후 이용 가능합니다.");
       navigate(`/login`);
     }
-  }
+  };
 
   return (
     <PostListItemBlock>

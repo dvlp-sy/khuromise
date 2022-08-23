@@ -15,7 +15,7 @@ const SelectedPlaceBox = styled.div`
   padding : 4px;
 `;
 
-function Map({ searchPlace, setPositionValue, setPlacenameValue }) {
+function Map({ searchPlace, setLatValue, setLonValue, setPlacenameValue }) {
 
   const [searchLat, setSearchLat] = useState(37.243775684467);
   const [searchLon, setSearchLon] = useState(127.077798444509);
@@ -72,7 +72,8 @@ function Map({ searchPlace, setPositionValue, setPlacenameValue }) {
   const onClick = (data) => {
     setSearchLat(data.y);
     setSearchLon(data.x);
-    setPositionValue([data.y, data.x]);
+    setLatValue(data.y);
+    setLonValue(data.x);
     setPlacenameValue(data.place_name);
   }
   

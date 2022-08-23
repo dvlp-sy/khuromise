@@ -134,13 +134,14 @@ function CreatePost(props) {
   const [titlevalue, setTitleValue] = useState('제목없음');
   const [contentvalue, setContentsValue] = useState('내용없음');
   const [noonvalue, setNoonValue] = useState('오전');
-  const [hourvalue, setHourValue] = useState('1');
+  const [hourvalue, setHourValue] = useState('01');
   const [minutevalue, setMinuteValue] = useState('00');
   const [peoplenumvalue, setPeopleNumValue] = useState('2');
   const [datevalue, setDateValue] = useState(todayYear+'-'+exactMonth(todayMonth)+'-'+exactDate(todayDate));
   const [purposevalue, setPurposeValue] = useState('식사');
   const [gendervalue, setGenderValue] = useState('남자만');
-  const [positionvalue, setPositionValue] = useState([37.2437815,127.0764067]);
+  const [latvalue, setLatValue] = useState(37.2437815);
+  const [lonvalue, setLonValue] = useState(127.0764067);
   const [placenamevalue, setPlacenameValue] = useState('경희대학교 국제캠퍼스');
 
   /*
@@ -153,7 +154,7 @@ function CreatePost(props) {
   console.log(peoplenumvalue);
   console.log(exactMonth(todayMonth));
   */
-  console.log(positionvalue);
+ 
   console.log(placenamevalue);
   return (
     <CreatePostBox>
@@ -175,7 +176,7 @@ function CreatePost(props) {
         </div>
         <div className="LineBox"><Line /></div>
         <div className="PlaceBox">
-          <Place setPositionValue={setPositionValue} setPlacenameValue={setPlacenameValue}/>
+          <Place setLatValue={setLatValue} setLonValue={setLonValue} setPlacenameValue={setPlacenameValue}/>
         </div>
         <div className="PostTitleBox">
           <PostTitle setTitleValue={setTitleValue}/>
@@ -194,7 +195,8 @@ function CreatePost(props) {
             datevalue = {datevalue}
             purposevalue = {purposevalue} 
             gendervalue = {gendervalue} 
-            positionvalue = {positionvalue}
+            latvalue = {latvalue}
+            lonvalue = {lonvalue}
             placenamevalue = {placenamevalue}/>
         </div>
       </div>

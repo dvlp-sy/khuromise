@@ -112,8 +112,9 @@ function ModifyPost() {
 
   //const today = new Date();
   
-  const fetch = useFetch(`http://localhost:3002/posts?id=${id}`);
-  const mypost = {...fetch[0]};
+  const mypost = useFetch(`/api/posts/id/${id}`);
+  //const mypost = {...fetch[0]};
+  console.log(mypost);
 
   const [titlevalue, setTitleValue] = useState();
   const [contentvalue, setContentsValue] = useState();
@@ -124,7 +125,9 @@ function ModifyPost() {
   const [datevalue, setDateValue] = useState();
   const [purposevalue, setPurposeValue] = useState();
   const [gendervalue, setGenderValue] = useState();
-  const [positionvalue, setPositionValue] = useState([37.2437815,127.0764067]);
+  //const [positionvalue, setPositionValue] = useState([37.2437815,127.0764067]);
+  const [latvalue, setLatValue] = useState(37.2437815);
+  const [lonvalue, setLonValue] = useState(127.0764067);
   const [placenamevalue, setPlacenameValue] = useState('경희대학교 국제캠퍼스');
 
   /*
@@ -137,7 +140,8 @@ function ModifyPost() {
   console.log(peoplenumvalue);
   console.log(purposevalue);
   console.log(gendervalue);
-  console.log(positionvalue);
+  console.log(latvalue);
+  console.log(lonvalue);
   console.log(placenamevalue);
   */
 
@@ -163,7 +167,7 @@ function ModifyPost() {
         </div>
         <div className="LineBox"><Line /></div>
         <div className="PlaceBox">
-          <ModPlace setPositionValue={setPositionValue} setPlacenameValue={setPlacenameValue} mypost = {mypost} />
+          <ModPlace setLatValue={setLatValue} setLonValue={setLonValue} setPlacenameValue={setPlacenameValue} mypost = {mypost} />
         </div>
         <div className="PostTitleBox">
           <ModTitle setTitleValue={setTitleValue} mypost = {mypost} />
@@ -182,7 +186,8 @@ function ModifyPost() {
             datevalue = {datevalue}
             purposevalue = {purposevalue} 
             gendervalue = {gendervalue}
-            positionvalue = {positionvalue}
+            latvalue = {latvalue}
+            lonvalue = {lonvalue}
             placenamevalue = {placenamevalue} />
         </div>
       </div>

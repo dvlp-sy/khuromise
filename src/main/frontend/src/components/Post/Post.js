@@ -8,6 +8,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import EmptyPage from "../EmptyPage";
 import Comment from "./Comment";
 import PostMap from "./PostMap";
+import useApplyFetch from "../../hooks/useApplyFetch";
 
 const PostBlock = styled.div`
   width: 100%;
@@ -125,7 +126,15 @@ const Post = (props) => {
   const { id } = useParams();
   const post = useFetch(`/api/posts/id/${id}`);
   const users = useFetch(`/api/users`);
-  const comments = useFetch(`http://localhost:3002/comments?postId=${id}`);
+  const findUsers = [...users];
+  const findUser =
+    findUsers.find(
+      (user) => user.userid === sessionStorage.getItem("LoginUserInfo")
+    ) || {};
+  const comments = useFetch(`/api/comment/data/${id}`);
+  const userapply = useApplyFetch(`/api/userapply/data/${id}`);
+  const userlist = userapply.map((user) => user.userid);
+  // console.log(comments);
 
   if (post.id === 0) {
     return null;
@@ -133,37 +142,44 @@ const Post = (props) => {
   const date = String(post.date);
   const currentpeople = Number(post.currentpeople);
 
-  // const { isLogin } = props;
+  //const applylist =
+  //const array = post.userApply || [];
 
-  // 조건 추가하기 => 성별이 조건에 만족한다면 진행
-
-  const findUsers = [...users];
-  const findUser =
-    findUsers.find(
-      (user) => user.userid === sessionStorage.getItem("LoginUserInfo")
-    ) || {};
-  const array = post.userApply || [];
+  console.log(userapply);
+  console.log(userlist);
+  console.log(findUser.userid);
 
   const applyClick = () => {
     if (window.confirm("신청하시겠습니까?")) {
-      if (array.includes(findUser.userid)) {
+      if (
+        userlist.includes(findUser.userid) ||
+        findUser.userid === post.writerid
+      ) {
         alert("이미 신청되었습니다.");
       } else if (post.currentpeople < post.maxpeople) {
         if (
-          post.genderCheck === "b" ||
-          post.genderCheck === findUser.usergender
+          post.gendercheck === "b" ||
+          post.gendercheck === findUser.usergender
         ) {
-          const userArray = array.concat([findUser.userid]);
-          console.log(userArray);
-          fetch(`http://localhost:3002/posts/${post.id}`, {
+          fetch(`/api/posts/modify/${post.id}`, {
             method: "PUT",
             headers: {
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
               ...post,
-              userApply: userArray,
+              //userApply: userArray,
               currentpeople: currentpeople + 1,
+            }),
+          });
+          fetch(`/api/userapply`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              userid: sessionStorage.getItem("LoginUserInfo"),
+              postid: String(id),
             }),
           }).then((res) => {
             if (res.ok) {
@@ -172,11 +188,10 @@ const Post = (props) => {
             }
           });
         } else {
-          alert("신청이 불가능합니다.");
+          alert("성별이 달라 신청이 불가능합니다.");
         }
       } else {
         alert("모집 인원이 가득 찼습니다.");
-        window.location.reload();
       }
     }
   };
@@ -184,17 +199,30 @@ const Post = (props) => {
   // 조건 추가하기 => 글쓴이만 수정 OR 삭제 가능
   const delPost = () => {
     if (window.confirm("정말로 삭제하시겠습니까?")) {
-      fetch(`http://localhost:3002/posts/${post.id}`, {
+      fetch(`/api/delete/${id}`, {
         method: "DELETE",
+        headers: {
+          "Content-Type": "application/json; charset=UTF-8",
+        },
+        body: JSON.stringify({
+          ...post,
+        }),
       });
       comments.forEach((comment) => {
-        fetch(`http://localhost:3002/comments/${comment.id}`, {
+        fetch(`/api/comment/delete/${comment.id}`, {
           method: "DELETE",
+          headers: {
+            "Content-Type": "application/json; charset=UTF-8",
+          },
+          body: JSON.stringify({
+            ...comment,
+          }),
         }).then((res) => console.log(comment.id));
       });
+      /*
       users.forEach((user) => {
         fetch("http://localhost:3002/users", {
-          method: "POST",
+          method: "POST", 
           headers: {
             "Content-Type": "application/json; charset=UTF-8",
           },
@@ -203,6 +231,7 @@ const Post = (props) => {
           }),
         });
       });
+      */
       alert("삭제가 완료되었습니다.");
       navigate(`/${post.category}`);
     }
@@ -251,7 +280,7 @@ const Post = (props) => {
               </div>
               <Buttons>
                 {/* 작성자만 수정 OR 삭제 가능 */}
-                {post.writerId === findUser.userId && (
+                {post.writerid === findUser.userid && (
                   <button
                     onClick={() =>
                       navigate(`/${post.category}/${post.id}/modifypost`)
@@ -260,13 +289,19 @@ const Post = (props) => {
                     수정
                   </button>
                 )}
-                {post.writerId === findUser.userId && (
+                {post.writerid === findUser.userid && (
                   <button onClick={delPost}>삭제</button>
                 )}
               </Buttons>
             </PostBody>
           </PostBlock>
-          {/*<Comment id={id} visible={post.userApply.includes(findUser.userId)} />*/}
+          <Comment
+            id={id}
+            visible={
+              userlist.includes(findUser.userid) ||
+              findUser.userid === post.writerid
+            }
+          />
         </>
       ) : (
         <EmptyPage />

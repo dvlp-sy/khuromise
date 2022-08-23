@@ -40,6 +40,39 @@ public class BoardController {
         return "message";
     }
 
+    @PostMapping("/api/posts/write")
+    public String createPost(@RequestBody Board board, Model model) {
+
+        boardService.write(board);
+
+        model.addAttribute("message", "글 작성이 완료되었습니다.");
+        model.addAttribute("searchUrl", "/");
+
+        return "message";
+    }
+
+    @RequestMapping(path="/api/posts/modify/{id}", method=RequestMethod.PUT)
+    public String modifyPost(@PathVariable("id") Integer id, @RequestBody Board board, Model model) {
+
+        boardService.write(board);
+
+        model.addAttribute("message", "글 수정이 완료되었습니다.");
+        model.addAttribute("searchUrl", "/");
+
+        return "message";
+    }
+
+    @DeleteMapping("/api/delete/{id}")
+    public String deletePost(@PathVariable("id") Integer id, @RequestBody Board board, Model model){
+
+        boardService.boardDelete(id);
+
+        model.addAttribute("message","글이 삭제되었습니다.");
+        model.addAttribute("searchUrl", "/");
+
+        return "message";
+    }
+
     @GetMapping("/board/list")
     public String boardList(Model model,
             @PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.DESC) Pageable pageable,
@@ -122,7 +155,8 @@ public class BoardController {
         boardTemp.setMaxpeople(board.getMaxpeople());
         boardTemp.setGenderdisplay(board.getGenderdisplay());
         boardTemp.setPlacename(board.getPlacename());
-        boardTemp.setPosition(board.getPosition());
+        boardTemp.setLat(board.getLat());
+        boardTemp.setLon(board.getLon());
 
         boardService.write(boardTemp);
 
@@ -158,13 +192,14 @@ public class BoardController {
         board.category = jobject.getString("category");
         board.date = jobject.getString("date");
         board.noon = jobject.getString("noon");
-        board.hour = jobject.getInt("hour");
-        board.minute = jobject.getInt("minute");
+        board.hour = jobject.getString("hour");
+        board.minute = jobject.getString("minute");
         board.currentpeople = 1;
         board.maxpeople = jobject.getInt("maxpeople");
         board.genderdisplay = jobject.getString("genderdisplay");
         board.placename = jobject.getString("placename");
-        board.position = jobject.getString("position");
+        board.lat = jobject.getString("lat");
+        board.lon = jobject.getString("lon");
 
         boardService.write(board);
 
