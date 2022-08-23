@@ -114,9 +114,14 @@ function Mypage({ isLogin, setIsLogin }) {
     window.location.reload();
   };
   const comments = useFetch("/api/comment/all");
-  console.log(comments);
   const userComments = comments.filter(
     (comment) => comment.writerid === findUser.userid
+  );
+
+  const userApplies = useFetch(`/api/userapply/user/${findUser.userid}`);
+  const applyPostIds = userApplies.map((apply) => apply.postid);
+  const applyPosts = posts.filter((post) =>
+    applyPostIds.includes(String(post.id))
   );
 
   const [checks, setCheck] = useState([
@@ -154,16 +159,11 @@ function Mypage({ isLogin, setIsLogin }) {
       case "나의 게시글":
         setList("게시글");
         break;
-
       case "나의 댓글":
         setList("댓글");
         break;
-
       case "약속 목록":
         setList("약속");
-        break;
-
-      default:
         break;
     }
   }, [checks, posts]);
@@ -183,24 +183,26 @@ function Mypage({ isLogin, setIsLogin }) {
   }
 
   function PostList() {
-    return userPosts.map((post) => (
-      <PostListItem
-        key={post.id}
-        id={post.id}
-        category={post.category}
-        title={post.title}
-        date={post.date}
-        noon={post.noon}
-        hour={post.hour}
-        minute={post.minute}
-        placeName={post.placename}
-        genderDisplay={post.genderdisplay}
-        currentPeople={post.currentpeople}
-        maxPeople={post.maxpeople}
-        writtenTime={post.writtentime}
-        isLogin={isLogin}
-      />
-    ));
+    return userPosts
+      .sort((a, b) => b.id - a.id)
+      .map((post) => (
+        <PostListItem
+          key={post.id}
+          id={post.id}
+          category={post.category}
+          title={post.title}
+          date={post.date}
+          noon={post.noon}
+          hour={post.hour}
+          minute={post.minute}
+          placeName={post.placename}
+          genderDisplay={post.genderdisplay}
+          currentPeople={post.currentpeople}
+          maxPeople={post.maxpeople}
+          writtenTime={post.writtentime}
+          isLogin={isLogin}
+        />
+      ));
   }
 
   const delComment = (comment) => {
@@ -220,17 +222,42 @@ function Mypage({ isLogin, setIsLogin }) {
   };
 
   function CommentList() {
-    return userComments.map((comment) => (
-      <Link to={`/posts/${comment.postid}`}>
-        <CommentItemBox>
-          <div className="userId">{comment.writername}</div>
-          <div className="comment">{comment.comment}</div>
-          <button className="delBtn" onClick={() => delComment(comment)}>
-            삭제
-          </button>
-        </CommentItemBox>
-      </Link>
-    ));
+    return userComments
+      .sort((a, b) => b.id - a.id)
+      .map((comment) => (
+        <Link key={comment.id} to={`/posts/${comment.postid}`}>
+          <CommentItemBox>
+            <div className="userId">{comment.writername}</div>
+            <div className="comment">{comment.comment}</div>
+            <button className="delBtn" onClick={() => delComment(comment)}>
+              삭제
+            </button>
+          </CommentItemBox>
+        </Link>
+      ));
+  }
+
+  function ApplyList() {
+    return applyPosts
+      .sort((a, b) => b.id - a.id)
+      .map((post) => (
+        <PostListItem
+          key={post.id}
+          id={post.id}
+          category={post.category}
+          title={post.title}
+          date={post.date}
+          noon={post.noon}
+          hour={post.hour}
+          minute={post.minute}
+          placeName={post.placename}
+          genderDisplay={post.genderdisplay}
+          currentPeople={post.currentpeople}
+          maxPeople={post.maxpeople}
+          writtenTime={post.writtentime}
+          isLogin={isLogin}
+        />
+      ));
   }
 
   if (posts[0].id === 0) {
@@ -268,10 +295,9 @@ function Mypage({ isLogin, setIsLogin }) {
             ))}
           </div>
           <div className="item">
-            {list === "게시글" && (
-              <PostList onToggle={onToggle} isLogin={isLogin} />
-            )}
+            {list === "게시글" && <PostList />}
             {list === "댓글" && <CommentList />}
+            {list === "약속" && <ApplyList />}
           </div>
         </Mypagebox>
       </Mypagecontainer>
