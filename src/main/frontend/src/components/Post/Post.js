@@ -249,7 +249,7 @@ const Post = (props) => {
             <PostHeader>
               <UpperBox>
                 <h1>{post.title}</h1>
-                <button onClick={applyClick}>신청하기</button>
+                <button onClick={applyClick} style={{cursor : "pointer"}}>신청하기</button>
               </UpperBox>
               <UnderBox>
                 <div className="item">
@@ -285,12 +285,13 @@ const Post = (props) => {
                     onClick={() =>
                       navigate(`/${post.category}/${post.id}/modifypost`)
                     }
+                    style={{cursor : "pointer"}}
                   >
                     수정
                   </button>
                 )}
                 {post.writerid === findUser.userid && (
-                  <button onClick={delPost}>삭제</button>
+                  <button onClick={delPost} style={{cursor : "pointer"}}>삭제</button>
                 )}
               </Buttons>
             </PostBody>

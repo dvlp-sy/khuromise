@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
 import Post5 from "./Post5";
-import Search from "./Search";
 import Myprofile from "./Myprofile";
 
 const Container = styled.div`
@@ -67,10 +66,6 @@ const Mainpage = ({ isLogin, setIsLogin }) => {
     <div>
       <Container>
         <div className="containerbox">
-          <div className="blank1"></div>
-          <div className="searchbox">
-            <Search />
-          </div>
           <div className="profilebox">
             <Myprofile isLogin={isLogin} />
           </div>

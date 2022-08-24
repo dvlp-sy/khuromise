@@ -134,6 +134,7 @@ const Comment = ({ id, visible }) => {
               placeholder="댓글달기"
               type="submit"
               onClick={commentSubmit}
+              style={{cursor : "pointer"}}
             />
           </WriteForm>
           <CommentBox>
@@ -148,7 +149,9 @@ const Comment = ({ id, visible }) => {
               placeholder="먼저 로그인 후 신청하기를 눌러주세요."
               disabled
             />
-            <button className="writeSubmit">댓글달기</button>
+            <button className="writeSubmit"
+              style={{cursor : "pointer"}}
+              disabled = {visible ? false : true}>댓글달기</button>
           </WriteForm>
           <CommentBox>
             <ErrorBox>약속에 참가한 사람만 댓글을 볼 수 있습니다.</ErrorBox>

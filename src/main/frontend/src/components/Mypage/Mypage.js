@@ -6,6 +6,7 @@ import { useState } from "react";
 import useFetch from "../../hooks/useFetch";
 import PostListItem from "../PostList/PostListItem";
 import CommentItem from "../Post/CommentItem";
+import icon from "./icon.png";
 
 const Mypagecontainer = styled.div`
   width: 100%;
@@ -20,11 +21,15 @@ const Mypagebox = styled.div`
   display: grid;
   grid-template-columns: 13rem 16rem 16rem 16rem;
   grid-template-rows: 4rem 6rem 10rem;
+
   .item: nth-child(1) {
     grid-column: 1/2;
     grid-row: 1/3;
     border-right: 1px solid #bcbcbc;
     border-bottom: 1px solid #bcbcbc;
+    display : flex;
+    justify-content : center;
+    align-items : center;
   }
   .item: nth-child(2) {
     grid-column: 1/2;
@@ -96,6 +101,12 @@ const CommentItemBox = styled.div`
   }
 `;
 
+const Logo = styled.img`
+  width: 50%;
+  height: 50%;
+`;
+
+
 function Mypage({ isLogin, setIsLogin }) {
   const findUsers = useFetch("/api/users");
   const findUser =
@@ -121,8 +132,9 @@ function Mypage({ isLogin, setIsLogin }) {
   const userApplies = useFetch(`/api/userapply/user/${findUser.userid}`);
   const applyPostIds = userApplies.map((apply) => apply.postid);
   const applyPosts = posts.filter((post) =>
-    applyPostIds.includes(String(post.id))
+    post.writerid === findUser.userid || applyPostIds.includes(String(post.id))
   );
+  console.log(applyPosts);
 
   const [checks, setCheck] = useState([
     {
@@ -284,7 +296,9 @@ function Mypage({ isLogin, setIsLogin }) {
     <div>
       <Mypagecontainer>
         <Mypagebox>
-          <div className="item">사진</div>
+          <div className="item">
+            <Logo src={icon} />
+          </div>
           <div className="item">
             <Button2 onClick={delUser}>회원탈퇴</Button2>
             <Button2 onClick={logOut}>로그아웃</Button2>
