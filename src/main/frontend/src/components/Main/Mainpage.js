@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import Post5 from "./Post5";
 import Myprofile from "./Myprofile";
+import icon from "./icon.png";
 
 const Container = styled.div`
   width: auto;
@@ -28,10 +29,12 @@ const Container = styled.div`
       grid-column: 1 / span 2;
       grid-row: 4/5;
     }
-    .searchbox {
+    .logobox {
       grid-column: 1/2;
       grid-row: 2/3;
       display: flex;
+      justify-content : center;
+      align-items : center;
       margin: 1em;
       padding: 1em;
     }
@@ -46,6 +49,10 @@ const Container = styled.div`
       min-height: 20em;
     }
   }
+`;
+
+const Logo = styled.img`
+  width: 60%;
 `;
 
 const Mainpage = ({ isLogin, setIsLogin }) => {
@@ -66,6 +73,9 @@ const Mainpage = ({ isLogin, setIsLogin }) => {
     <div>
       <Container>
         <div className="containerbox">
+          <div className="logobox">
+            <Logo src={icon} />
+          </div>
           <div className="profilebox">
             <Myprofile isLogin={isLogin} />
           </div>

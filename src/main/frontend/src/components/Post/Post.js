@@ -283,7 +283,7 @@ const Post = (props) => {
                 {post.writerid === findUser.userid && (
                   <button
                     onClick={() =>
-                      navigate(`/${post.category}/${post.id}/modifypost`)
+                      navigate(`/posts/${post.id}/modifypost`)
                     }
                     style={{cursor : "pointer"}}
                   >
