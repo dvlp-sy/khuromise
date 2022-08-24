@@ -269,13 +269,13 @@ const Register = () => {
       numRef.current = number;
       console.log(numRef.current);
 
-      // emailjs.init(config.PUBLIC_KEY);
-      // const templateParams = {
-      //   name: name,
-      //   email: email + "@khu.ac.kr",
-      //   number: number,
-      // };
-      // emailjs.send(config.SERVICE_ID, config.TEMPLATE_ID, templateParams);
+      emailjs.init(config.PUBLIC_KEY);
+      const templateParams = {
+        name: name,
+        email: email + "@khu.ac.kr",
+        number: number,
+      };
+      emailjs.send(config.SERVICE_ID, config.TEMPLATE_ID, templateParams);
 
       setIsCerti(true);
       alert("인증메일이 성공적으로 전송되었습니다.");
@@ -333,7 +333,7 @@ const Register = () => {
                 />
               </td>
               <td>
-                <div onClick={idCheckClick}>중복확인</div>
+                <div onClick={idCheckClick} style={{cursor : "pointer"}}>중복확인</div>
               </td>
             </tr>
             <tr>
@@ -516,9 +516,9 @@ const Register = () => {
               </td>
               <td>
                 {canEmail ? (
-                  isCerti || <div onClick={sendEmail}>전송하기</div>
+                  isCerti || <div onClick={sendEmail} style={{cursor : "pointer"}}>전송하기</div>
                 ) : (
-                  <div onClick={checkEmail}>중복확인</div>
+                  <div onClick={checkEmail} style={{cursor : "pointer"}}>중복확인</div>
                 )}
               </td>
             </tr>
@@ -538,7 +538,7 @@ const Register = () => {
                   />
                 </td>
                 <td>
-                  <div onClick={checkNum}>인증하기</div>
+                  <div onClick={checkNum} style={{cursor : "pointer"}} >인증하기</div>
                 </td>
               </tr>
             ) : (
