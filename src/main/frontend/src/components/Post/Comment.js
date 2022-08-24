@@ -1,6 +1,5 @@
-import { useContext, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import styled from "styled-components";
-import { NextCommentIdContext } from "../../context/Context";
 import useFetch from "../../hooks/useFetch";
 import CommentItem from "./CommentItem";
 

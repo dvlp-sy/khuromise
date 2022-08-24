@@ -7,12 +7,10 @@ import PostList from "./components/PostList/PostList";
 import TestBar from "./components/TestBar";
 import Post from "./components/Post/Post";
 import Footer from "./components/Footer/Footer";
-import { PostContextProvider } from "./context/PostContext";
-import { ContextProvider } from "./context/Context";
 import Register from "./components/LoginRegister/Register";
 import Mainpage from "./components/Main/Mainpage";
 import ModifyPost from "./components/modifypost/ModifyPost";
-import { useEffect, useContext, useState } from "react";
+import { useEffect, useState } from "react";
 import Mypage from "./components/Mypage/Mypage";
 
 const GlobalStyle = createGlobalStyle`
@@ -51,8 +49,6 @@ function App() {
   });
 
   return (
-    <PostContextProvider>
-      <ContextProvider>
         <BrowserRouter>
           <GlobalStyle />
           <Header isLogin={isLogin} setIsLogin={setIsLogin} />
@@ -91,8 +87,6 @@ function App() {
           </Routes>
           <Footer isLogin={isLogin} />
         </BrowserRouter>
-      </ContextProvider>
-    </PostContextProvider>
   );
 }
 

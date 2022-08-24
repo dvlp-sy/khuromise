@@ -71,7 +71,7 @@ const Header = (props) => {
 
   const onClick3 = () => {
     if (isLogin === true) {
-      navigate(`/mypage/mypostlist`);
+      navigate(`/mypage`);
       window.location.reload();
     } else {
       navigate(`/register`);
@@ -90,7 +90,7 @@ const Header = (props) => {
             {isLogin ? "로그아웃" : "로그인"}
           </LogRegButton>
           <LogRegButton onClick={onClick3}>
-            {isLogin ? "나의게시글" : "회원가입"}
+            {isLogin ? "마이페이지" : "회원가입"}
           </LogRegButton>
         </ButtonBox>
       </ItemBox>

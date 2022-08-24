@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
-import { NextPostIdContext } from '../../context/Context';
 import useFetch from '../../hooks/useFetch';
 
 const PostBox = styled.div`
@@ -18,7 +17,6 @@ function PostSend({ titlevalue , contentvalue, noonvalue, hourvalue, minutevalue
   const findUsers = [...users]
   const findUser = findUsers.find((user)=>user.userid === sessionStorage.getItem('LoginUserInfo')) || {};
 
-  const nextId = useContext(NextPostIdContext);
   const navigate = useNavigate();
   let gender = '';
 
@@ -49,7 +47,6 @@ function PostSend({ titlevalue , contentvalue, noonvalue, hourvalue, minutevalue
         },
         body : JSON.stringify({
           "writerid" : sessionStorage.getItem('LoginUserInfo'),
-          //"userApply" : [sessionStorage.getItem('LoginUserInfo')],
           "writergender" : findUser.usergender,
           "date" : datevalue,
           "noon" : noonvalue,
