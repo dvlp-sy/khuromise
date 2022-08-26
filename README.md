@@ -1,4 +1,6 @@
-# <img src="src/main/frontend/src/components/Header/icon.png" width="50"> KHUromise(쿠로미스):경희대학교 약속 플랫폼
+# KHUromise(쿠로미스):경희대학교 약속 플랫폼
+<img src="src/main/frontend/src/components/Header/icon.png" width="40%">
+<br>
 
 > 2022년 경희대학교 SW중심대학 동아리 단합 공모전에 동아리 Hacker 소속 Team KHUromise로 참여했습니다.
 
@@ -8,9 +10,10 @@
 ## 기능
 - 회원가입/회원탈퇴
 - 로그인/로그아웃
-- 게시글 작성/수정/삭제
-- 댓글 작성/삭제
-- 마이페이지
+- 게시글 - 작성, 수정, 삭제
+- 약속 참가(신청)
+- 댓글 - 작성, 삭제, 약속별 참가자만 작성
+- 마이페이지 - 내 게시글, 내 댓글, 내 약속
 
 ## 팀원 소개
 
