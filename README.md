@@ -8,21 +8,29 @@
 경희대학교 학생들의 코로나19로 단절된 선후배 관계 개선과 학생들간 만남을 이루게 해주는 서비스입니다.
 
 ## 기능
-- 회원가입/회원탈퇴
-- 로그인/로그아웃
-- 게시글 - 작성, 수정, 삭제
-- 약속 참가(신청)
-- 댓글 - 작성, 삭제, 약속별 참가자만 작성
-- 마이페이지 - 내 게시글, 내 댓글, 내 약속
+### 회원가입/회원탈퇴, 로그인/로그아웃
+- 경희대학교 학생이라면 누구나 가입할 수 있어요. 학생 인증을 위해 경희대 이메일을 통해 인증메일을 받으실 수 있어요.
+
+### 약속 잡기
+- 누구나 내가 원하는 장소와 시간대, 날짜를 선택하고 약속을 등록해보세요.
+- 각 게시물의 '신청하기' 버튼을 통해 약속에 참여할 수 있어요.
+- 약속 참여자들간의 소통을 위해 댓글 기능을 이용해보세요.
+
+### 약속 보기
+- 카테고리별 게시판에서 다른 사람들의 약속을 확인하고 참여해보세요.
+
+### 마
+- 내 게시글, 댓글을 바로 확인하고 관리해보세요.
+- 내가 참여한 약속을 확인하고 잊어버리지 마세요.
 
 ## 팀원 소개
 
 ### Frontend
-|  이름  |                        역할                        |                  Github                   |
-| :----: | :------------------------------------------------: | :---------------------------------------: |
-| 변시윤 |  개발총괄, 게시글 작성/수정 페이지, 로그인 페이지  |  [바로가기](https://github.com/CUNIIII)   |
-| 강경현 | 회원가입 페이지, 게시판 페이지, 게시물/댓글 페이지 |  [바로가기](https://github.com/nageune)   |
-| 박예림 |              메인 페이지, 마이 페이지              | [바로가기](https://github.com/debora1628) |
+|  이름  |                            역할                            |                  Github                   |
+| :----: | :--------------------------------------------------------: | :---------------------------------------: |
+| 변시윤 | 로그인/로그아웃, 게시글 작성/수정, 검색형 지도, 내위치지도 |  [바로가기](https://github.com/CUNIIII)   |
+| 강경현 |    회원가입/회원탈퇴, 이메일 인증, 게시판, 게시물, 댓글    |  [바로가기](https://github.com/nageune)   |
+| 박예림 |   메인페이지, 마이페이지, 내게시물, 내댓글, 내약속, CSS    | [바로가기](https://github.com/debora1628) |
 
 ### Backend
 |  이름  |                   역할                    |                   Github                    |
@@ -42,8 +50,9 @@
 <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
 <img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
 <img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white">
-<img src="https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white">
+<img src="https://img.shields.io/badge/styledcomponents-DB7093?style=for-the-badge&logo=styled-components&logoColor=white">
 <img src="https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white">
+<img src="https://img.shields.io/badge/kakao map-FFCD00?style=for-the-badge&logo=kakao&logoColor=black">
 </div>
 
 ### Backend
