@@ -1,13 +1,13 @@
-# KHUromise(쿠로미스):경희대학교 약속 플랫폼
+# <img src="src/main/frontend/src/components/Header/icon.png" width="60" height="30"> KHUromise(쿠로미스):경희대학교 약속 플랫폼
 <img src="src/main/frontend/src/components/Header/icon.png" width="40%">
 <br>
 
 > 2022년 경희대학교 SW중심대학 동아리 단합 공모전에 동아리 Hacker 소속 Team KHUromise로 참여했습니다.
 
-## 프로젝트 소개
+## ✨ 프로젝트 소개
 경희대학교 학생들의 코로나19로 단절된 선후배 관계 개선과 학생들간 만남을 이루게 해주는 서비스입니다.
 
-## 기능
+## 📌 기능
 ### 회원가입/회원탈퇴, 로그인/로그아웃
 - 경희대학교 학생이라면 누구나 가입할 수 있어요. 학생 인증을 위해 경희대 이메일을 통해 인증메일을 받으실 수 있어요.
 
@@ -23,7 +23,7 @@
 - 내 게시글, 댓글을 바로 확인하고 관리해보세요.
 - 내가 참여한 약속을 확인하고 잊어버리지 마세요.
 
-## 팀원 소개
+## 👥 팀원 소개
 
 ### Frontend
 |  이름  |                            역할                            |                  Github                   |
@@ -39,10 +39,10 @@
 | 권승원 | 로그인/로그아웃 구현, 신청 기능, API 설계 | [바로가기](https://github.com/SeungwonKwon) |
 | 양동균 |            댓글 CRUD, API 설계            |   [바로가기](https://github.com/ydg1210)    |
 
-## 아키텍쳐
+## 🏗 아키텍쳐
 <img src="img/architecture.png">
 
-## Tech Stack
+## 🛠 Tech Stack
 
 ### Frontend
 <div>
