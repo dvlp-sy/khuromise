@@ -1,11 +1,12 @@
 # <img src="src/main/frontend/src/components/Header/icon.png" width="60" height="30"> KHUromise(쿠로미스):경희대학교 약속 플랫폼
 <img src="src/main/frontend/src/components/Header/icon.png" width="40%">
-<br>
+<br />
 
 > 2022년 경희대학교 SW중심대학 동아리 단합 공모전에 동아리 Hacker 소속 Team KHUromise로 참여했습니다.
 
 ## ✨ 프로젝트 소개
 경희대학교 학생들의 코로나19로 단절된 선후배 관계 개선과 학생들간 만남을 이루게 해주는 서비스입니다.
+<br />
 
 ## 📌 기능
 ### 회원가입/회원탈퇴, 로그인/로그아웃
@@ -22,6 +23,7 @@
 ### 마이페이지
 - 내 게시글, 댓글을 바로 확인하고 관리해보세요.
 - 내가 참여한 약속을 확인하고 잊어버리지 마세요.
+<br />
 
 ## 👥 팀원 소개
 
@@ -38,9 +40,11 @@
 | 이천국 |        게시판 CRUD, 플로우 구성도         |  [바로가기](https://github.com/twoheaven)   |
 | 권승원 | 로그인/로그아웃 구현, 신청 기능, API 설계 | [바로가기](https://github.com/SeungwonKwon) |
 | 양동균 |            댓글 CRUD, API 설계            |   [바로가기](https://github.com/ydg1210)    |
+<br />
 
 ## 🏗 아키텍쳐
 <img src="img/architecture.png">
+<br />
 
 ## 🛠 Tech Stack
 
@@ -68,3 +72,4 @@
 <img src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white">
 <img src="https://img.shields.io/badge/gradle-02303A?style=for-the-badge&logo=gradle&logoColor=white">
 </div>
+<br />
